@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "env": {
+    "FIREBASE_ENDPOINT": "@firebase-endpoint",
+    "FIREBASE_PROJECT_ID": "@firebase-project-id",
+    "FIREBASE_PRIVATE_KEY": "@firebase-private-key",
+    "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
+    "SENTRY_DSN": "@sentry-dsn",
+    "EMIALJS_TEMPLATEID": "@emailjs-templateid",
+    "EMIALJS_USERID": "@emailjs-userid"
+  }
+}
