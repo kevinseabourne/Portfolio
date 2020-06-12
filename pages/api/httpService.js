@@ -11,14 +11,6 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status < 500
   ) {
     logger.log(error);
-    // toast.error("An error has occurred", {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    // });
     return Promise.reject(error);
   }
 });
