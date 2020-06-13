@@ -28,7 +28,8 @@
     "react-lazyload": "^2.6.7",
     "react-toastify": "^6.0.0-rc.2-1",
     "react-transition-group": "^4.4.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "vercel": "^19.1.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7",
