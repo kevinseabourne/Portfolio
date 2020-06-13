@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 1.0,
   "env": {
     "FIREBASE_ENDPOINT": "@firebase-endpoint",
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
