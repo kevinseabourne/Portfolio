@@ -19,8 +19,9 @@ const Home = ({ data }) => {
   return (
     <React.Fragment>
       <Head>
-        <meta name="home" content="Kevin Seabourne's Portfolio Page" />
         <html lang="en" />
+        <meta charset="utf-8" />
+        <meta name="home" content="Kevin Seabourne's Portfolio Page" />
         <title>Portfolio | Kevin Seabourne</title>
         <meta
           name="description"
