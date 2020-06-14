@@ -40,13 +40,13 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <html lang="en">
         <Head />
         <body>
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </html>
     );
   }
 }
