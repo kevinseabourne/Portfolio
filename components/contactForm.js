@@ -89,7 +89,6 @@ class ContactForm extends ReusableForm {
   };
 
   render() {
-    console.log("test:", process.env.TEST);
     return (
       <Form>
         {this.renderInput("name", "Name", "", this.nameRef)}
