@@ -17,7 +17,7 @@ export async function sendEmail(data) {
       "outlook",
       process.env.EMAILJS_TEMPLATE_ID,
       template_params,
-      process.env.EMALJS_USERID
+      process.env.EMAILJS_USER_ID
     )
     .then((response) => {
       toast.success("Email Sent ✅", {
