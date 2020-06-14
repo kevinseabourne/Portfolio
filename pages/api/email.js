@@ -5,7 +5,6 @@ import emailjs from "emailjs-com";
 export async function sendEmail(data) {
   // Cypress Testing Coverage //
   /* istanbul ignore file */
-  console.log(process.env.FIREBASE_CLIENT_EMAIL);
   const template_params = {
     to_name: "Kevin Seabourne",
     from_name: data.firstName,
@@ -15,9 +14,9 @@ export async function sendEmail(data) {
   return emailjs
     .send(
       "outlook",
-      process.env.EMAILJS_TEMPLATEID,
+      process.env.EMAILJS_TEMPLATE_ID,
       template_params,
-      process.env.EMAILJS_USERID
+      process.env.EMAILJS_USER_ID
     )
     .then((response) => {
       toast.success("Email Sent ✅", {
