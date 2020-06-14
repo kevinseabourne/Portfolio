@@ -1,4 +1,4 @@
-const withSourceMaps = require("@zeit/next-source-maps")();
+const withSourceMaps = require("@zeit/next-source-maps");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = withSourceMaps({
