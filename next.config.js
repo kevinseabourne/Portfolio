@@ -12,7 +12,7 @@ module.exports = withSourceMaps({
     FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
     SENTRY_DSN: process.env.SENTRY_DSN,
-    EMIALJS_USERID: process.env.EMIALJS_USERID,
+    EMAILJS_USERID: process.env.EMAILJS_USERID,
     EMAILJS_TEMPLATEID: process.env.EMAILJS_TEMPLATEID,
   },
 });
