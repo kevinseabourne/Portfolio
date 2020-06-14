@@ -24,6 +24,7 @@ module.exports = {
 
     return config;
   },
+
   env: {
     FIREBASE_ENDPOINT: process.env.FIREBASE_ENDPOINT,
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
