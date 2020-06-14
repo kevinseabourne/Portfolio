@@ -41,7 +41,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta name="home" content="Kevin Seabourne's Portfolio Page" />
+        </Head>
         <body>
           <Main />
           <NextScript />
