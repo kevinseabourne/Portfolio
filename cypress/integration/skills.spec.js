@@ -2,7 +2,7 @@ import "@testing-library/react/dont-cleanup-after-each";
 
 describe("Skills", () => {
   it("should render images", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
     cy.viewport("macbook-15");
 
     // lazy loaded images should not load (exist) until scrolled into view.

@@ -8,7 +8,7 @@ describe("Failed Request - Error Message", () => {
       url: "/api.emailjs.com/api/v1.0/email/send",
       response: [{ status: 404 }],
     });
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
 
     cy.get('[data-testid="name-input"]').type("test", { force: true });
     cy.wait(1000).get('[data-testid="email-input"]').type("test@hotmail.com", {
@@ -42,7 +42,7 @@ describe("Failed Request - Error Message", () => {
       response: {},
       delay: 3000,
     });
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
 
     cy.get('[data-testid="name-input"]').type("test", { force: true });
     cy.wait(1000).get('[data-testid="email-input"]').type("test@hotmail.com", {

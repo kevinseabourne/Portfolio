@@ -23,7 +23,7 @@ describe("Header Links", () => {
         section +
         " section when clicking on its link in the header",
       () => {
-        cy.visit("http://localhost:3000");
+        cy.visit("http://kevinseabourne.com");
 
         const link = cy.findByTestId(`${section}-link`);
 
@@ -40,7 +40,7 @@ describe("Header Links", () => {
 
 describe("Responsive Header", () => {
   it("should open and close responsive header on click outside", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
     cy.viewport("iphone-x");
 
     const burgerMenu = cy.findByTestId("burgerMenu");
@@ -56,7 +56,7 @@ describe("Responsive Header", () => {
   });
 
   it("should open & close the header when clicking on the burgerMenu", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
     cy.viewport("iphone-x");
 
     const burgerMenu = cy.findByTestId("burgerMenu");
@@ -71,7 +71,7 @@ describe("Responsive Header", () => {
   });
 
   it("should close the header after clicking on a link", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://kevinseabourne.com");
     cy.viewport("iphone-x");
 
     const burgerMenu = cy.findByTestId("burgerMenu");
@@ -110,7 +110,7 @@ describe("Responsive Header Links", () => {
         section +
         " section when clicking on its link in the header",
       () => {
-        cy.visit("http://localhost:3000");
+        cy.visit("http://kevinseabourne.com");
         cy.viewport("iphone-x");
 
         const burgerMenu = cy.findByTestId("burgerMenu");
