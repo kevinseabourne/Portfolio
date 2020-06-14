@@ -49,7 +49,6 @@ const Home = ({ data }) => {
 
 export async function getStaticProps() {
   const { data } = await getAllProjects();
-
   return {
     props: { data },
   };

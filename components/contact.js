@@ -89,8 +89,6 @@ const Container = styled.section`
   min-height: 1233px;
   width: 100%;
   padding-bottom: 70px;
-  scroll-snap-align: end;
-  scroll-snap-type: both proximity;
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
   @media (max-width: 900px) {

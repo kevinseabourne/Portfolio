@@ -38,7 +38,6 @@ const Container = styled.section`
   height: 100vh;
   min-height: 650px;
   max-height: 1240px;
-  scroll-snap-align: start;
   width: 100%;
   overflow: hidden;
   background-color: #08aeea;

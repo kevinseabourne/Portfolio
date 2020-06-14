@@ -92,7 +92,6 @@ const Skills = (props) => {
 };
 
 const Container = styled.section`
-  scroll-snap-align: start;
   height: 100vh;
   width: 100%;
   background-color: #08aeea;

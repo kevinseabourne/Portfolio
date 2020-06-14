@@ -19,7 +19,7 @@ const Projects = ({ data }) => {
     // });
     data.length === 0 &&
       toast.error("An error has occurred", {
-        position: "top-left",
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -144,7 +144,6 @@ const Container = styled.section`
   height: 100%;
   overflow: hidden;
   max-height: 4600px;
-  scroll-snap-align: start;
   width: 100%;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   @media (max-width: 984px) {

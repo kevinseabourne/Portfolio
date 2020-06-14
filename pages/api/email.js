@@ -20,7 +20,7 @@ export async function sendEmail(data) {
     )
     .then((response) => {
       toast.success("Email Sent ✅", {
-        position: "top-left",
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -34,7 +34,7 @@ export async function sendEmail(data) {
     .catch((error) => {
       if (error && error.status >= 400 && error.status < 500) {
         toast.error("An unexpected error has occurred 😔", {
-          position: "top-left",
+          position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
