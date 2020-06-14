@@ -19,6 +19,7 @@ const Home = ({ data }) => {
   return (
     <React.Fragment>
       <Head>
+        <html lang="eng" />
         <title>Portfolio | Kevin Seabourne</title>
         <meta
           name="description"
