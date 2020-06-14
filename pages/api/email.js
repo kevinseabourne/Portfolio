@@ -12,12 +12,7 @@ export async function sendEmail(data) {
     message_html: data.Message,
   };
   return emailjs
-    .send(
-      "outlook",
-      process.env.EMAILJS_TEMPLATEID,
-      template_params,
-      process.env.EMAILJS_USERID
-    )
+    .send("outlook", "test", template_params, process.env.EMAILJS_USERID)
     .then((response) => {
       toast.success("Email Sent ✅", {
         position: "bottom-right",
