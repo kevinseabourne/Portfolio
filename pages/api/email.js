@@ -15,7 +15,7 @@ export async function sendEmail(data) {
   return emailjs
     .send(
       "outlook",
-      process.env.EMAILJS_TEMPLATEID,
+      process.env.EMAILJS_TEMPLATE_ID,
       template_params,
       process.env.EMALJS_USERID
     )
