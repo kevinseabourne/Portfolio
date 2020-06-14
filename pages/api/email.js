@@ -5,7 +5,7 @@ import emailjs from "emailjs-com";
 export async function sendEmail(data) {
   // Cypress Testing Coverage //
   /* istanbul ignore file */
-  console.log(process.env.EMAILJS_TEMPLATEID);
+  console.log(process.env.FIREBASE_CLIENT_EMAIL);
   const template_params = {
     to_name: "Kevin Seabourne",
     from_name: data.firstName,
