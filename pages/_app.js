@@ -41,17 +41,17 @@ const MyApp = ({ Component, pageProps }) => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppContext.Provider
-        value={{
-          componentPositions: componentPositions,
-          handleScrollTo: handleScrollTo,
-        }}
-      >
+    <AppContext.Provider
+      value={{
+        componentPositions: componentPositions,
+        handleScrollTo: handleScrollTo,
+      }}
+    >
+      <ThemeProvider theme={theme}>
         <ToastContainer closeOnClick />
         <Component {...pageProps} />
-      </AppContext.Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 };
 
