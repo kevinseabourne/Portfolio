@@ -11,31 +11,39 @@ process.on("uncaughtException", (err) => {
 });
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  // static async getInitialProps(ctx) {
+  //   const sheet = new ServerStyleSheet();
+  //   const originalRenderPage = ctx.renderPage;
+  //
+  //   try {
+  //     ctx.renderPage = () =>
+  //       originalRenderPage({
+  //         enhanceApp: (App) => (props) =>
+  //           sheet.collectStyles(<App {...props} />),
+  //       });
+  //
+  //     const initialProps = await Document.getInitialProps(ctx);
+  //
+  //     return {
+  //       ...initialProps,
+  //       styles: (
+  //         <>
+  //           {initialProps.styles}
+  //           {sheet.getStyleElement()}
+  //         </>
+  //       ),
+  //     };
+  //   } finally {
+  //     sheet.seal();
+  //   }
+  // }
+  static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        });
-
-      const initialProps = await Document.getInitialProps(ctx);
-
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const page = renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags }; // return styles collected
   }
 
   render() {
@@ -44,7 +52,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta charset="utf-8" />
           <meta name="home" content="Kevin Seabourne's Portfolio Page" />
-          {sheet.getStyleElement()}
+          {this.props.styleTags}
         </Head>
         <body>
           <Main />
