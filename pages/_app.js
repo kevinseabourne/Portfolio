@@ -1,4 +1,3 @@
-import App from "next/app";
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import logger from "../pages/api/logger";
