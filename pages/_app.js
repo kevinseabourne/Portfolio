@@ -41,32 +41,18 @@ const MyApp = ({ Component, pageProps }) => {
   };
 
   return (
-    <AppContext.Provider
-      value={{
-        componentPositions: componentPositions,
-        handleScrollTo: handleScrollTo,
-      }}
-    >
-      <ThemeProvider theme={theme}>
-        <ToastContainer closeOnClick position="top-left" />
+    <ThemeProvider theme={theme}>
+      <AppContext.Provider
+        value={{
+          componentPositions: componentPositions,
+          handleScrollTo: handleScrollTo,
+        }}
+      >
+        <ToastContainer closeOnClick />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </AppContext.Provider>
+      </AppContext.Provider>
+    </ThemeProvider>
   );
 };
 
 export default MyApp;
-
-// export default class MyApp extends App {
-//
-//
-//   render() {
-//     const { Component, pageProps } = this.props;
-//     return (
-//       <ThemeProvider theme={theme}>
-//         <ToastContainer />
-//         <Component {...pageProps} />
-//       </ThemeProvider>
-//     );
-//   }
-// }
