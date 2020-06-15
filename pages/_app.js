@@ -20,18 +20,16 @@ const theme = {
   },
 };
 
-export default class MyApp extends App {
-  state = {
-    componentPositions: [
-      { name: "About", position: 1140 },
-      { name: "Skills", position: 2480 },
-      { name: "Projects", position: 3810 },
-      { name: "Contact", position: 4899 },
-    ],
-  };
+const MyApp = ({ Component, pageProps }) => {
+  const [componentPositions, setComponentPositions] = useState([
+    { name: "About", position: 1140 },
+    { name: "Skills", position: 2480 },
+    { name: "Projects", position: 3810 },
+    { name: "Contact", position: 4899 },
+  ]);
 
-  handleScrollTo = (obj) => {
-    const componentPositionsClone = [...this.state.componentPositions];
+  const handleScrollTo = (obj) => {
+    const componentPositionsClone = [...componentPositions];
     componentPositionsClone.map((i) => {
       return i.name === obj.name
         ? typeof obj.position === "number"
@@ -39,60 +37,22 @@ export default class MyApp extends App {
           : ""
         : "";
     });
-    this.setState({ componentPositions: componentPositionsClone });
+    setComponentPositions(componentPositionsClone);
   };
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <AppContext.Provider
-        value={{
-          componentPositions: this.state.componentPositions,
-          handleScrollTo: this.handleScrollTo,
-        }}
-      >
-        <ThemeProvider theme={theme}>
-          <ToastContainer closeOnClick />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </AppContext.Provider>
-    );
-  }
-}
-
-// const MyApp = ({ Component, pageProps }) => {
-//   const [componentPositions, setComponentPositions] = useState([
-//     { name: "About", position: 1140 },
-//     { name: "Skills", position: 2480 },
-//     { name: "Projects", position: 3810 },
-//     { name: "Contact", position: 4899 },
-//   ]);
-//
-//   const handleScrollTo = (obj) => {
-//     const componentPositionsClone = [...componentPositions];
-//     componentPositionsClone.map((i) => {
-//       return i.name === obj.name
-//         ? typeof obj.position === "number"
-//           ? (i.position = obj.position)
-//           : ""
-//         : "";
-//     });
-//     setComponentPositions(componentPositionsClone);
-//   };
-//
-//   return (
-//     <AppContext.Provider
-//       value={{
-//         componentPositions: componentPositions,
-//         handleScrollTo: handleScrollTo,
-//       }}
-//     >
-//       <ThemeProvider theme={theme}>
-//         <ToastContainer closeOnClick />
-//         <Component {...pageProps} />
-//       </ThemeProvider>
-//     </AppContext.Provider>
-//   );
-// };
+  return (
+    <AppContext.Provider
+      value={{
+        componentPositions: componentPositions,
+        handleScrollTo: handleScrollTo,
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <ToastContainer closeOnClick />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </AppContext.Provider>
+  );
+};
 
 export default MyApp;
