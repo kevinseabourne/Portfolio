@@ -37,7 +37,8 @@ export default class MyDocument extends Document {
   //     sheet.seal();
   //   }
   // }
-  static getInitialProps({ renderPage }) {
+
+  static getStaticProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
     const page = renderPage((App) => (props) =>
       sheet.collectStyles(<App {...props} />)
@@ -47,6 +48,7 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    console.log(this.props.styleTags);
     return (
       <html lang="en">
         <Head>
