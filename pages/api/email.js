@@ -8,9 +8,9 @@ export async function sendEmail(data) {
   /* istanbul ignore file */
   const template_params = {
     to_name: "Kevin Seabourne",
-    from_name: data.firstName,
-    reply_to: data.Email,
-    message_html: data.Message,
+    from_name: data.name,
+    reply_to: data.email,
+    message_html: data.message,
   };
   return emailjs
     .send(
