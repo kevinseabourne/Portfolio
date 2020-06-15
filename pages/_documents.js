@@ -11,7 +11,7 @@ process.on("uncaughtException", (err) => {
 });
 
 export default class MyDocument extends Document {
-  static async getStaticProps(ctx) {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
             sheet.collectStyles(<App {...props} />),
         });
 
-      const initialProps = await Document.getStaticProps(ctx);
+      const initialProps = await Document.getInitialProps(ctx);
 
       return {
         ...initialProps,
