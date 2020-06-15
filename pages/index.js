@@ -21,7 +21,6 @@ const Home = ({ data }) => {
       <Head>
         <html lang="en" />
         <meta charset="utf-8" />
-        <meta content="#ffffff" name="theme-color" />
         <meta name="home" content="Kevin Seabourne's Portfolio Page" />
         <title>Portfolio | Kevin Seabourne</title>
         <meta

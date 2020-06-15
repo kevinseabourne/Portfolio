@@ -69,6 +69,7 @@ class ContactForm extends ReusableForm {
   };
 
   doSubmit = async () => {
+    console.log(this.state.data);
     this.setState({ status: "pending" });
     const response = await sendEmail(this.state.data);
     if (response && response.status === 200) {
