@@ -20,39 +20,50 @@ const theme = {
   },
 };
 
-const MyApp = ({ Component, pageProps }) => {
-  const [componentPositions, setComponentPositions] = useState([
-    { name: "About", position: 1140 },
-    { name: "Skills", position: 2480 },
-    { name: "Projects", position: 3810 },
-    { name: "Contact", position: 4899 },
-  ]);
-
-  const handleScrollTo = (obj) => {
-    const componentPositionsClone = [...componentPositions];
-    componentPositionsClone.map((i) => {
-      return i.name === obj.name
-        ? typeof obj.position === "number"
-          ? (i.position = obj.position)
-          : ""
-        : "";
-    });
-    setComponentPositions(componentPositionsClone);
-  };
-
-  return (
-    <AppContext.Provider
-      value={{
-        componentPositions: componentPositions,
-        handleScrollTo: handleScrollTo,
-      }}
-    >
+export default class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
       <ThemeProvider theme={theme}>
-        <ToastContainer closeOnClick />
         <Component {...pageProps} />
       </ThemeProvider>
-    </AppContext.Provider>
-  );
-};
+    );
+  }
+}
+
+// const MyApp = ({ Component, pageProps }) => {
+//   const [componentPositions, setComponentPositions] = useState([
+//     { name: "About", position: 1140 },
+//     { name: "Skills", position: 2480 },
+//     { name: "Projects", position: 3810 },
+//     { name: "Contact", position: 4899 },
+//   ]);
+//
+//   const handleScrollTo = (obj) => {
+//     const componentPositionsClone = [...componentPositions];
+//     componentPositionsClone.map((i) => {
+//       return i.name === obj.name
+//         ? typeof obj.position === "number"
+//           ? (i.position = obj.position)
+//           : ""
+//         : "";
+//     });
+//     setComponentPositions(componentPositionsClone);
+//   };
+//
+//   return (
+//     <AppContext.Provider
+//       value={{
+//         componentPositions: componentPositions,
+//         handleScrollTo: handleScrollTo,
+//       }}
+//     >
+//       <ThemeProvider theme={theme}>
+//         <ToastContainer closeOnClick />
+//         <Component {...pageProps} />
+//       </ThemeProvider>
+//     </AppContext.Provider>
+//   );
+// };
 
 export default MyApp;
