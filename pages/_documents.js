@@ -39,7 +39,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    console.log(this.props.styleTags);
     return (
       <html lang="en">
         <Head>
