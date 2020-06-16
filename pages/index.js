@@ -35,7 +35,7 @@ const Home = ({ data }) => {
           key="portfolio"
         />
       </Head> */}
-      <Test />
+      <Test>Test</Test>
       {/* <Container> */}
       {/* <Header /> */}
       {/* <Banner /> */}
