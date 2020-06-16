@@ -36,12 +36,12 @@ const Home = ({ data }) => {
         />
       </Head>
       <Container>
-        <Header />
+        {/* <Header /> */}
         <Banner />
-        <About />
-        <Skills />
-        <Projects data={dataArray} />
-        <Contact />
+        {/* <About /> */}
+        {/* <Skills /> */}
+        {/* <Projects data={dataArray} /> */}
+        {/* <Contact /> */}
       </Container>
     </React.Fragment>
   );
