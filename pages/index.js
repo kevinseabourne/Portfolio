@@ -18,7 +18,7 @@ const Home = ({ data }) => {
   }
   return (
     <React.Fragment>
-      {/* <Head>
+      <Head>
         <title>Portfolio | Kevin Seabourne</title>
         <meta
           name="description"
@@ -34,16 +34,15 @@ const Home = ({ data }) => {
           content="Portfolio | Kevin Seabourne"
           key="portfolio"
         />
-      </Head> */}
-      <Test>Test</Test>
-      {/* <Container> */}
-      {/* <Header /> */}
-      {/* <Banner /> */}
-      {/* <About /> */}
-      {/* <Skills /> */}
-      {/* <Projects data={dataArray} /> */}
-      {/* <Contact /> */}
-      {/* </Container> */}
+      </Head>
+      <Container>
+        <Header />
+        <Banner />
+        <About />
+        <Skills />
+        <Projects data={dataArray} />
+        <Contact />
+      </Container>
     </React.Fragment>
   );
 };
@@ -57,13 +56,6 @@ export async function getStaticProps() {
 }
 
 export default Home;
-
-const Test = styled.div`
-  background-color: red;
-  width: 100%;
-  height: 2900px;
-  z-index: 1;
-`;
 
 const Container = styled.main`
   margin: 0;
