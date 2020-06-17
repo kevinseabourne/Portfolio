@@ -60,8 +60,9 @@ const Skills = (props) => {
             <LazyLoad
               key={skills.indexOf(skill)}
               once={true}
-              height={250}
+              height={"100%"}
               offset={500}
+              placeholder
             >
               <Child key={skills.indexOf(skill)}>
                 <Image
