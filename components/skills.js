@@ -192,9 +192,8 @@ const Placeholder = styled.div`
   min-height: 40px;
   height: 200px;
   width: 100%;
-  font-size: 16px;
-  background-color: red;
   z-index: 1;
+  margin-bottom: 13.3px;
 `;
 
 const Image = styled.img`
