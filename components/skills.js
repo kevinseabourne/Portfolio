@@ -201,6 +201,7 @@ const SubTitle = styled.label`
   font-size: 2.2rem;
   letter-spacing: 2;
   text-transform: uppercase;
+  margin-top: auto;
   margin-bottom: 0.5rem;
   @media (max-width: 1200px) {
     font-size: 2rem;
