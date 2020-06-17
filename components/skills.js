@@ -61,9 +61,9 @@ const Skills = (props) => {
               <LazyLoad
                 key={skills.indexOf(skill)}
                 once={true}
-                height={"100%"}
+                height={270}
                 offset={500}
-                placeholder={<Placeholder>Loading</Placeholder>}
+                placeholder={<div className="">Loading</div>}
               >
                 <Image
                   src={skill.image}
