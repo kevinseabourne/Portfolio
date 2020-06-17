@@ -62,6 +62,7 @@ const Skills = (props) => {
               once={true}
               height={"100%"}
               offset={500}
+              placeholder={<Placeholder>Loading</Placeholder>}
             >
               <Child key={skills.indexOf(skill)}>
                 <Image
@@ -185,6 +186,10 @@ const Child = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Placeholder = styled.div`
+  font-size: 16px;
 `;
 
 const Image = styled.img`
