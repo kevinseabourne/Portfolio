@@ -62,7 +62,6 @@ const Skills = (props) => {
               once={true}
               height={"100%"}
               offset={500}
-              placeholder={true}
             >
               <Child key={skills.indexOf(skill)}>
                 <Image
