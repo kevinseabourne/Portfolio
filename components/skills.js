@@ -61,7 +61,7 @@ const Skills = (props) => {
               <LazyLoad
                 key={skills.indexOf(skill)}
                 once={true}
-                height={270}
+                height={"100%"}
                 offset={500}
                 placeholder={<Placeholder>Loading</Placeholder>}
               >
