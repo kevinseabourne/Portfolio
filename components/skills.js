@@ -65,7 +65,7 @@ const Skills = (props) => {
                 offset={500}
                 placeholder={<Placeholder>Loading</Placeholder>}
               >
-                <Image
+                {/* <Image
                   src={skill.image}
                   data-testid={skill.title}
                   data-aos="fade-up"
@@ -74,7 +74,7 @@ const Skills = (props) => {
                   data-aos-delay={skills.indexOf(skill) * 100}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
-                />
+                /> */}
               </LazyLoad>
               <SubTitle
                 data-aos="fade-up"
