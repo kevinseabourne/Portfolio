@@ -63,7 +63,7 @@ const Skills = (props) => {
                 once={true}
                 height={"100%"}
                 offset={-500}
-                placeholder={<Placeholder>Loading</Placeholder>}
+                placeholder={<Placeholder />}
               >
                 <Image
                   src={skill.image}
