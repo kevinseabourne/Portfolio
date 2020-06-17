@@ -57,14 +57,14 @@ const Skills = (props) => {
         </TitleContainer>
         <ImagesContainer>
           {skills.map((skill) => (
-            <LazyLoad
-              key={skills.indexOf(skill)}
-              once={true}
-              height={"100%"}
-              offset={500}
-              placeholder={<Placeholder>Loading</Placeholder>}
-            >
-              <Child key={skills.indexOf(skill)}>
+            <Child key={skills.indexOf(skill)}>
+              <LazyLoad
+                key={skills.indexOf(skill)}
+                once={true}
+                height={"100%"}
+                offset={500}
+                placeholder={<Placeholder>Loading</Placeholder>}
+              >
                 <Image
                   src={skill.image}
                   data-testid={skill.title}
@@ -75,16 +75,16 @@ const Skills = (props) => {
                   key={skills.indexOf(skill)}
                   alt={skill.title}
                 />
-                <SubTitle
-                  data-aos="fade-up"
-                  data-aos-once="true"
-                  data-aos-anchor-placement="bottom-bottom"
-                  data-aos-delay={skills.indexOf(skill) * 200}
-                >
-                  {skill.title}
-                </SubTitle>
-              </Child>
-            </LazyLoad>
+              </LazyLoad>
+              <SubTitle
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-anchor-placement="bottom-bottom"
+                data-aos-delay={skills.indexOf(skill) * 200}
+              >
+                {skill.title}
+              </SubTitle>
+            </Child>
           ))}
         </ImagesContainer>
       </Wrapper>
@@ -189,6 +189,9 @@ const Child = styled.div`
 `;
 
 const Placeholder = styled.div`
+  min-height: 40px;
+  height: 200px;
+  width: 100%;
   font-size: 16px;
 `;
 
