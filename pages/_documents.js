@@ -40,16 +40,13 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="en">
-        <Head>
-          <meta charset="utf-8" />
-          <meta name="home" content="Kevin Seabourne's Portfolio Page" />
-        </Head>
+      <Html lang="en">
+        <Head></Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

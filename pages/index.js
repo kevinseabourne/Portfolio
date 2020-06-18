@@ -16,35 +16,36 @@ const Home = ({ data }) => {
       dataArray.push(value);
     }
   }
-  return (
-    <React.Fragment>
-      <Head>
-        <title>Portfolio | Kevin Seabourne</title>
-        <meta
-          name="description"
-          property="og:title"
-          content="Portfolio | Kevin Seabourne"
-          key="portfolio"
-        />
-      </Head>
-      <Head>
-        <meta
-          name="description"
-          property="og:title"
-          content="Portfolio | Kevin Seabourne"
-          key="portfolio"
-        />
-      </Head>
-      <Container>
-        <Header />
-        <Banner />
-        <About />
-        <Skills />
-        <Projects data={dataArray} />
-        <Contact />
-      </Container>
-    </React.Fragment>
-  );
+  return <Test>Testing</Test>;
+  // return (
+  //   <React.Fragment>
+  //     <Head>
+  //       <title>Portfolio | Kevin Seabourne</title>
+  //       <meta
+  //         name="description"
+  //         property="og:title"
+  //         content="Portfolio | Kevin Seabourne"
+  //         key="portfolio"
+  //       />
+  //     </Head>
+  //     <Head>
+  //       <meta
+  //         name="description"
+  //         property="og:title"
+  //         content="Portfolio | Kevin Seabourne"
+  //         key="portfolio"
+  //       />
+  //     </Head>
+  //     <Container>
+  //       <Header />
+  //       <Banner />
+  //       <About />
+  //       <Skills />
+  //       <Projects data={dataArray} />
+  //       <Contact />
+  //     </Container>
+  //   </React.Fragment>
+  // );
 };
 
 export async function getStaticProps() {
@@ -56,6 +57,12 @@ export async function getStaticProps() {
 }
 
 export default Home;
+
+const Test = styled.div`
+  height: 2900px;
+  background-color: red;
+  text-align: center;
+`;
 
 const Container = styled.main`
   margin: 0;

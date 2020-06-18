@@ -62,19 +62,22 @@ const Skills = (props) => {
                 key={skills.indexOf(skill)}
                 once={true}
                 height={"100%"}
-                offset={-500}
+                offset={500}
+                debounce={false}
                 placeholder={<Placeholder />}
               >
-                <Image
-                  src={skill.image}
-                  data-testid={skill.title}
-                  data-aos="fade-up"
-                  data-aos-once="true"
-                  data-aos-anchor-placement="bottom-bottom"
-                  data-aos-delay={skills.indexOf(skill) * 100}
-                  key={skills.indexOf(skill)}
-                  alt={skill.title}
-                />
+                <ImageContainer>
+                  <Image
+                    src={skill.image}
+                    data-testid={skill.title}
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-anchor-placement="bottom-bottom"
+                    data-aos-delay={skills.indexOf(skill) * 100}
+                    key={skills.indexOf(skill)}
+                    alt={skill.title}
+                  />
+                </ImageContainer>
               </LazyLoad>
               <SubTitle
                 data-aos="fade-up"
@@ -195,6 +198,8 @@ const Placeholder = styled.div`
   z-index: 1;
   margin-bottom: 13.3px;
 `;
+
+const ImageContainer = styled.div``;
 
 const Image = styled.img`
   margin: 0 auto;
