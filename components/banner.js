@@ -26,7 +26,7 @@ const Banner = (props) => {
           Web Developer
         </JobTitle2>
         <Name data-aos="fade-right" data-aos-delay="500">
-          Kevin Seabourne
+          Kevin D Seabourne
         </Name>
         <Line data-aos="fade-right" data-aos-delay="700" />
       </TextContainer>
