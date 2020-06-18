@@ -25,7 +25,7 @@ export const TextBox = React.forwardRef(
         <Title>{label}</Title>
         <InputContainer error={error}>
           <InnerLabel
-            for="innerLabel"
+            htmlFor="innerLabel"
             data-testid={`${label}-label`}
             valueLength={value.length >= 1}
           >
