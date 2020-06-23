@@ -48,6 +48,7 @@ const MyApp = ({ Component, pageProps }) => {
     >
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <ToastContainer />
         <Component {...pageProps} />
       </ThemeProvider>
     </AppContext.Provider>
