@@ -77,7 +77,7 @@ const About = (props) => {
 
 const Container = styled.section`
   height: 100vh;
-  min-height: 933.2px;
+  ${"" /* min-height: 933.2px; */}
   width: 100%;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   display: flex;
@@ -88,6 +88,9 @@ const Container = styled.section`
   @media (max-width: 790px) {
     height: 100%;
     align-items: flex-start;
+  }
+  @media (max-width: 984px) {
+    padding: 35px 2px;
   }
 `;
 const Wrapper = styled.div`
@@ -171,6 +174,9 @@ const Title = styled.h2`
   @media (max-width: 623px) {
     font-size: 3.12em;
   }
+  @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Line = styled.hr`
@@ -202,6 +208,10 @@ const Text = styled.p`
   }
   @media (max-width: 623px) {
     font-size: 1.22em;
+  }
+  @media (max-width: 415px) {
+    font-size: 1.05rem;
+    letter-spacing: 1.4px;
   }
 `;
 

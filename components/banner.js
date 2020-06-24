@@ -76,6 +76,9 @@ const JobTitle1 = styled.h1`
   @media (max-width: 578px) {
     font-size: 3.2em;
   }
+  @media (max-width: 415px) {
+    font-size: 2.3em;
+  }
 `;
 
 const JobTitle2 = styled.h1`
@@ -90,6 +93,9 @@ const JobTitle2 = styled.h1`
   @media (max-width: 578px) {
     font-size: 3.2em;
   }
+  @media (max-width: 415px) {
+    font-size: 2.3em;
+  }
 `;
 
 const Name = styled.h2`
@@ -103,7 +109,10 @@ const Name = styled.h2`
     font-size: 1.9rem;
   }
   @media (max-width: 578px) {
-    font-size: 1.4em;
+    font-size: 1.6em;
+  }
+  @media (max-width: 415px) {
+    font-size: 1.5em;
   }
 `;
 

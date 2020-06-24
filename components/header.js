@@ -116,7 +116,7 @@ const HeaderContainer = styled.header`
 const Linkk = styled.p`
   display: inline-block;
   position: relative;
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-weight: 600;
   white-space: nowrap;
   color: rgba(245, 245, 247, 0.8);
@@ -186,8 +186,8 @@ const BurgerMenu = styled.div`
 
 const BurgerInner = styled.div`
   position: absolute;
-  width: 40px;
-  height: 4px;
+  width: 38px;
+  height: 3.45px;
   transition-timing-function: ease;
   transition-duration: 0.15s;
   transition-property: transform;
@@ -206,8 +206,8 @@ const BurgerInner = styled.div`
     transition-duration: 0.15s;
     transition-property: transform, opacity;
     position: absolute;
-    width: 40px;
-    height: 4px;
+    width: 38px;
+    height: 3.45px;
     transition-timing-function: ease;
     transition-duration: 0.15s;
     transition-property: transform;
@@ -220,8 +220,8 @@ const BurgerInner = styled.div`
     display: block;
     content: "";
     position: absolute;
-    width: 40px;
-    height: 4px;
+    width: 38px;
+    height: 3.45px;
     transition-timing-function: ease;
     transition-duration: 0.15s;
     transition-property: transform;

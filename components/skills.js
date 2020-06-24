@@ -112,6 +112,7 @@ const Container = styled.section`
   }
   @media (max-width: 984px) {
     height: 100%;
+    padding: 0px 0px;
   }
 `;
 
@@ -184,7 +185,7 @@ const ImagesContainer = styled.div`
     grip-gap: 76px 0%;
   }
   @media (max-width: 638px) {
-    grid-gap: 67px 12%;
+    grid-gap: 32px 13%;
     grid-template-columns: repeat(2, minmax(10px, 140px));
   }
 `;

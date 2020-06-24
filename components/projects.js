@@ -162,7 +162,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 30px;
+  padding: 0px 10px;
   box-sizing: border-box;
 `;
 
@@ -180,6 +180,9 @@ const Title = styled.h1`
   text-align: center;
   @media (max-width: 578px) {
     font-size: 3.2em;
+  }
+  @media (max-width: 415px) {
+    font-size: 2.5em;
   }
 `;
 
@@ -262,6 +265,12 @@ const ProjectTitle = styled.h1`
   @media (max-width: 684px) {
     font-size: 2.3rem;
   }
+  @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
+  @media (max-width: 415px) {
+    font-size: 2.3em;
+  }
 `;
 
 const Description = styled.p`
@@ -275,6 +284,9 @@ const Description = styled.p`
   }
   @media (max-width: 584px) {
     font-size: 1.22em;
+  }
+  @media (max-width: 415px) {
+    font-size: 1.05rem;
   }
 `;
 
@@ -293,6 +305,9 @@ const Skills = styled.label`
   }
   @media (max-width: 584px) {
     font-size: 1.1em;
+  }
+  @media (max-width: 584px) {
+    font-size: 1rem;
   }
 `;
 

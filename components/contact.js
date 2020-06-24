@@ -110,7 +110,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px 30px;
+  padding: 0px 10px;
   box-sizing: border-box;
 `;
 
