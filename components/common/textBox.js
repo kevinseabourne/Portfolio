@@ -160,7 +160,7 @@ const TextInput = styled.textarea`
   height: 100%;
   width: 100%;
   min-height: 42px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: rgb(51, 51, 51);
   resize: none;

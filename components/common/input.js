@@ -152,7 +152,7 @@ const InnerLabel = styled.label`
 
 const TextInput = styled.input`
   padding: ${({ valueLength }) =>
-    valueLength ? "14.5px 40px 0px 12px" : "0px 12px 0px 12px"};
+    valueLength ? "21.5px 40px 0px 12px" : "0px 12px 0px 12px"};
   border: none;
   transition: all 0.2s;
   border-radius: 12px;
@@ -165,7 +165,7 @@ const TextInput = styled.input`
   height: 100%;
   width: 100%;
   min-height: 42px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: rgb(51, 51, 51);
 `;
