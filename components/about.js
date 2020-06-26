@@ -77,7 +77,7 @@ const About = (props) => {
 
 const Container = styled.section`
   height: 100vh;
-  ${"" /* min-height: 933.2px; */}
+  min-height: 799px;
   width: 100%;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   display: flex;

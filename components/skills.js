@@ -147,6 +147,9 @@ const Title = styled.h1`
   @media (max-width: 578px) {
     font-size: 3.2em;
   }
+  @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Line = styled.hr`
@@ -187,6 +190,10 @@ const ImagesContainer = styled.div`
   @media (max-width: 638px) {
     grid-gap: 32px 13%;
     grid-template-columns: repeat(2, minmax(10px, 140px));
+  }
+  @media (max-width: 415px) {
+    grid-gap: 32px 13%;
+    grid-template-columns: repeat(2, minmax(10px, 120px));
   }
 `;
 
@@ -230,8 +237,8 @@ const SubTitle = styled.label`
   @media (max-width: 760px) {
     font-size: 1.4rem;
   }
-  @media (max-width: 390px) {
-    font-size: 1.3rem;
+  @media (max-width: 415px) {
+    font-size: 1.07rem;
   }
 `;
 

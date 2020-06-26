@@ -130,6 +130,9 @@ const Title = styled.h1`
   @media (max-width: 623px) {
     font-size: 3.12em;
   }
+  @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Line = styled.hr`
@@ -285,5 +288,8 @@ const Copyright = styled.span`
   }
   @media (max-width: 600px) {
     margin-bottom: 25px;
+  }
+  @media (max-width: 415px) {
+    font-size: 1.07rem;
   }
 `;

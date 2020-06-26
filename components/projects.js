@@ -245,7 +245,7 @@ const Image = styled.div`
   @media (max-width: 984px) {
     margin: 0 auto;
     width: 100%;
-    padding-bottom: 60%;
+    padding-bottom: 67%;
     margin-bottom: 30px;
   }
 `;
@@ -269,7 +269,7 @@ const ProjectTitle = styled.h1`
     font-size: 2.5em;
   }
   @media (max-width: 415px) {
-    font-size: 2.3em;
+    font-size: 2rem;
   }
 `;
 
