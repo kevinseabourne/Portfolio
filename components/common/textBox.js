@@ -93,6 +93,9 @@ const Container = styled.div`
 const Title = styled.label`
   font-size: 1.26rem;
   font-weight: 700;
+  @media (max-width: 415px) {
+    font-size: 1.07rem;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -128,9 +131,8 @@ const InputContainer = styled.div`
 `;
 
 const InnerLabel = styled.label`
-  font-family: "Roboto", sans-serif;
   font-size: 12px;
-  letter-spacing: 0px;
+  letter-spacing: 0.6px;
   margin-top: 7.2px;
   margin-bottom: -2px;
   transform: ${({ valueLength }) =>
@@ -145,13 +147,16 @@ const InnerLabel = styled.label`
 
 const TextInput = styled.textarea`
   padding: ${({ valueLength }) =>
-    valueLength ? "24.5px 40px 0px 12px" : "14.5px 12px 0px 12px"};
+    valueLength ? "27.5px 40px 0px 12px" : "14.5px 12px 0px 12px"};
   border: none;
   transition: all 0.2s;
   border-radius: 12px;
   box-sizing: border-box;
   outline: none;
   cursor: text;
+  font-family: inherit;
+  letter-spacing: 0.6px;
+  line-height: inherit;
   height: 100%;
   width: 100%;
   min-height: 42px;
