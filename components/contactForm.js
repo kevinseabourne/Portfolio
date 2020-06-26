@@ -103,6 +103,7 @@ class ContactForm extends ReusableForm {
 export default ContactForm;
 
 const Form = styled.form`
+  height: fit-content;
   width: 100%;
   max-width: 460px;
 `;

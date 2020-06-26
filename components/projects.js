@@ -162,7 +162,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 10px;
+  padding: 0px 7px;
   box-sizing: border-box;
 `;
 
@@ -270,12 +270,14 @@ const ProjectTitle = styled.h1`
   }
   @media (max-width: 415px) {
     font-size: 2rem;
+    text-align: center;
   }
 `;
 
 const Description = styled.p`
   font-size: 1.5em;
   font-weight: 200;
+  margin-bottom: 25px;
   @media (max-width: 1204px) {
     font-size: 1.3em;
   }
@@ -287,6 +289,7 @@ const Description = styled.p`
   }
   @media (max-width: 415px) {
     font-size: 1.05rem;
+    text-align: center;
   }
 `;
 
@@ -308,6 +311,7 @@ const Skills = styled.label`
   }
   @media (max-width: 584px) {
     font-size: 1rem;
+    text-align: center;
   }
 `;
 

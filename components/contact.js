@@ -52,18 +52,20 @@ export default function Contact() {
             data-aos-anchor-placement="bottom-bottom"
           >
             <LazyLoad once={true} height={70} offset={100}>
-              <Github
+              <GithubLink
                 href="https://github.com/kevinseabourne"
                 target="_blank"
-                src={githubIcon}
-              />
+              >
+                <GithubIcon src={githubIcon} />
+              </GithubLink>
             </LazyLoad>
             <LazyLoad once={true} height={70} offset={100}>
-              <LinkedIn
+              <LinkedInLink
                 href="https://www.linkedin.com/in/kevin-seabourne-53833a19a/"
                 target="_blank"
-                src={linkedInIcon}
-              />
+              >
+                <LinkedInIcon src={linkedInIcon} />
+              </LinkedInLink>
             </LazyLoad>
           </Links>
         </ContactContainer>
@@ -90,14 +92,18 @@ const Container = styled.section`
   width: 100%;
   padding-bottom: 70px;
   background-color: #08aeea;
+  position: relative;
   background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
   @media (max-width: 900px) {
     height: 100%;
     min-height: 1024.56px;
   }
   @media (max-width: 768px) {
-    min-height: 900px;
     padding-bottom: 0px;
+  }
+  @media (max-width: 415px) {
+    height: 100%;
+    ${"" /* padding-bottom: 150px; */}
   }
 `;
 
@@ -105,13 +111,13 @@ const Wrapper = styled.div`
   max-width: 1590px;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 0px 10px;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const TitleContainer = styled.div`
@@ -158,16 +164,17 @@ const Line = styled.hr`
 
 const ContactContainer = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  flex: 0 1 100px;
+  ${"" /* flex: 0 1 100px; */}
   justify-content: space-between;
   margin-bottom: 169px;
   @media (max-width: 1533px) {
     flex-direction: column;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
+    justify-content: center;
   }
 `;
 
@@ -196,11 +203,6 @@ const Message = styled.p`
   font-size: 1.4rem;
 `;
 
-const Email = styled.form`
-  width: 100%;
-  max-width: 460px;
-`;
-
 const Links = styled.div`
   display: flex;
   flex-direction: row;
@@ -208,7 +210,6 @@ const Links = styled.div`
   text-align: center;
   max-width: 450px;
   width: 100%;
-  height: 100%;
   @media (max-width: 1533px) {
     margin-top: 50px;
   }
@@ -248,48 +249,59 @@ const shakeTop = keyframes`
   }
 `;
 
-const Github = styled.img`
-  height: 70px;
-  width: 70px;
+const GithubLink = styled.a`
   margin-top: 136.5px;
-  object-position: center;
-  object-fit: contain;
   margin-right: 100px;
-  &:hover {
-    cursor: pointer;
-    animation: ${shakeTop} 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  }
   @media (max-width: 1533px) {
     margin-top: 50px;
   }
 `;
 
-const LinkedIn = styled.img`
+const GithubIcon = styled.img`
   height: 70px;
   width: 70px;
-  margin-top: 136.5px;
+  margin: auto;
   object-position: center;
   object-fit: contain;
   &:hover {
     cursor: pointer;
     animation: ${shakeTop} 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
+`;
+
+const LinkedInLink = styled.a`
+  margin-top: 136.5px;
   @media (max-width: 1533px) {
     margin-top: 50px;
+  }
+`;
+
+const LinkedInIcon = styled.img`
+  height: 70px;
+  width: 70px;
+  object-position: center;
+  object-fit: contain;
+  margin: auto;
+  &:hover {
+    cursor: pointer;
+    animation: ${shakeTop} 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 `;
 
 const Copyright = styled.span`
   text-align: center;
   font-size: 1.2rem;
+  z-index: 1;
   margin-bottom: 100px;
   @media (max-width: 1533px) {
     margin-bottom: 50px;
+    margin-top: 100px;
   }
   @media (max-width: 600px) {
     margin-bottom: 25px;
   }
   @media (max-width: 415px) {
     font-size: 1.07rem;
+    margin-bottom: 50px;
   }
 `;
