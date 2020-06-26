@@ -151,6 +151,7 @@ const Linkk = styled.p`
     display: block;
     padding: 22.5px 0px;
     margin: 0px 20px;
+    font-size: 1rem;
     border-top: 1px solid #f5f5eb;
     &:last-child {
       border-bottom: 1px solid #f5f5eb;

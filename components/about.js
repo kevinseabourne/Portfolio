@@ -92,6 +92,10 @@ const Container = styled.section`
   @media (max-width: 984px) {
     padding: 35px 2px;
   }
+  @media (max-width: 415px) {
+    height: 100vh;
+    align-items: center;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -191,8 +195,8 @@ const Line = styled.hr`
   border: none;
   content: "";
   height: 4px;
-  margin-bottom: 0.2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 23%;
@@ -210,9 +214,10 @@ const Text = styled.p`
     font-size: 1.22em;
   }
   @media (max-width: 415px) {
-    font-size: 1.05rem;
+    font-size: 1.07rem;
     letter-spacing: 1.4px;
   }
+  text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.2);
 `;
 
 export default About;

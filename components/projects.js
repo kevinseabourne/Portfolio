@@ -358,6 +358,9 @@ const DemoButton = styled.button`
   @media (max-width: 319px) {
     margin-bottom: 25px;
   }
+  @media (max-width: 584px) {
+    padding: 13.5px 24px;
+  }
 `;
 
 const CodeButton = styled.button`
@@ -379,6 +382,9 @@ const CodeButton = styled.button`
   }
   @media (max-width: 750px) {
     width: 95%;
+  }
+  @media (max-width: 584px) {
+    padding: 13.5px 24px;
   }
 `;
 export default Projects;
