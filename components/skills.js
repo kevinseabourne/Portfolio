@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import LazyLoad from "react-lazyload";
 import AppContext from "../context/appContext";
+import ImageLoader from "../components/common/imageLoader";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
@@ -58,15 +59,21 @@ const Skills = (props) => {
         <ImagesContainer>
           {skills.map((skill) => (
             <Child key={skills.indexOf(skill)}>
-              <LazyLoad
+              <ImageLoader
+                src={skill.image}
                 key={skills.indexOf(skill)}
-                once={true}
-                height={"100%"}
-                offset={500}
-                debounce={false}
-                placeholder={<Placeholder />}
-              >
-                <ImageContainer>
+                alt={skill.title}
+                dataTestId={skill.title}
+                delay={skills.indexOf(skill) * 120}
+              />
+              {/* <ImageContainer>
+                <LazyLoad
+                  key={skills.indexOf(skill)}
+                  once={true}
+                  height={"100%"}
+                  offset={-700}
+                  debounce={false}
+                >
                   <Image
                     src={skill.image}
                     data-testid={skill.title}
@@ -77,8 +84,8 @@ const Skills = (props) => {
                     key={skills.indexOf(skill)}
                     alt={skill.title}
                   />
-                </ImageContainer>
-              </LazyLoad>
+                </LazyLoad>
+              </ImageContainer> */}
               <SubTitle
                 data-aos="fade-up"
                 data-aos-once="true"
@@ -213,7 +220,13 @@ const Placeholder = styled.div`
   margin-bottom: 13.3px;
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13.3px;
+`;
 
 const Image = styled.img`
   margin: 0 auto;
@@ -221,7 +234,6 @@ const Image = styled.img`
   ${"" /* padding-top: 100%; */}
   object-fit: contain;
   object-position: center;
-  margin-bottom: 13.3px;
 `;
 
 const SubTitle = styled.label`
