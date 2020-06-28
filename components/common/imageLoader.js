@@ -48,7 +48,7 @@ const Image = styled.img`
   height: auto;
   z-index: 1;
   opacity: ${({ isLoaded }) => (isLoaded ? 1 : 0)};
-  transform: ${({ isLoaded }) => (isLoaded ? "scale(1)" : "scale(0.8)")};
-  transition: all 200ms;
+  transform: ${({ isLoaded }) => (isLoaded ? "scale(1)" : "scale(0.5)")};
+  transition: all 250ms;
   transition-delay: ${({ delay }) => `${delay}ms`};
 `;
