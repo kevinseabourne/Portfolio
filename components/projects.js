@@ -181,6 +181,9 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   font-size: 4em;
   text-align: center;
+  @media (max-width: 1440px) {
+    font-size: 3.2rem;
+  }
   @media (max-width: 1024px) {
     font-size: 3.5rem;
   }
@@ -269,6 +272,9 @@ const TextContainer = styled.div`
 
 const ProjectTitle = styled.h1`
   font-size: 3rem;
+  @media (max-width: 1440px) {
+    font-size: 2.8rem;
+  }
   @media (max-width: 1024px) {
     font-size: 2.35rem;
   }
@@ -288,6 +294,9 @@ const Description = styled.p`
   font-size: 1.5em;
   font-weight: 200;
   margin-bottom: 25px;
+  @media (max-width: 1440px) {
+    font-size: 1.4rem;
+  }
   @media (max-width: 1024px) {
     font-size: 1.2rem;
   }
@@ -304,6 +313,9 @@ const Skills = styled.label`
   font-family: inherit;
   font-size: 1.3em;
   font-weight: 200;
+  @media (max-width: 1440px) {
+    font-size: 1.3rem;
+  }
   @media (max-width: 1024px) {
     font-size: 1.1rem;
   }

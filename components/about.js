@@ -107,11 +107,11 @@ const Wrapper = styled.div`
   width: 100%;
   border-radius: 12px;
   margin: 0px 15px;
-  height: inherit;
   @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: inherit;
   }
 `;
 
@@ -174,6 +174,9 @@ const TextContainer = styled.div`
 
 const Title = styled.h2`
   font-size: 4em;
+  @media (max-width: 1440px) {
+    font-size: 3.2rem;
+  }
   @media (max-width: 1024px) {
     font-size: 2.35rem;
   }
@@ -212,6 +215,9 @@ const Line = styled.hr`
 const Text = styled.p`
   font-size: 1.6em;
   font-weight: 200;
+  @media (max-width: 1440px) {
+    font-size: 1.4rem;
+  }
   @media (max-width: 1024px) {
     font-size: 1.2rem;
   }

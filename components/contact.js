@@ -135,6 +135,9 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   font-size: 4em;
   text-align: center;
+  @media (max-width: 1440px) {
+    font-size: 3.2rem;
+  }
   @media (max-width: 623px) {
     font-size: 3.12em;
   }

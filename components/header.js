@@ -116,7 +116,7 @@ const HeaderContainer = styled.header`
 const Linkk = styled.p`
   display: inline-block;
   position: relative;
-  font-size: 1.1em;
+  font-size: 1.4rem;
   font-weight: 600;
   white-space: nowrap;
   color: rgba(245, 245, 247, 0.8);
@@ -147,7 +147,11 @@ const Linkk = styled.p`
     cursor: pointer;
     color: rgba(245, 245, 247, 1);
   }
+  @media (max-width: 1440px) {
+    font-size: 1.2rem;
+  }
   @media (max-width: 410px) {
+    font-size: 1.1em;
     display: block;
     padding: 22.5px 0px;
     margin: 0px 20px;
