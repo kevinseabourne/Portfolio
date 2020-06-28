@@ -19,12 +19,6 @@ const Home = ({ data }) => {
   return (
     <React.Fragment>
       <Head>
-        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <meta
-          content="width=device-width, initial-scale=1"
-          name="viewport"
-          viewport-fit="cover"
-        />
         <title>Portfolio | Kevin Seabourne</title>
         <meta
           name="description"
