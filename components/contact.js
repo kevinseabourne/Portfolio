@@ -103,9 +103,6 @@ const Container = styled.section`
   @media (max-width: 769px) {
     padding-bottom: 0px;
   }
-  @media (max-width: 415px) {
-    padding-bottom: 20px;
-  }
 `;
 
 const Wrapper = styled.div`
