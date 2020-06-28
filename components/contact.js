@@ -168,10 +168,8 @@ const Line = styled.hr`
 
 const ContactContainer = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
-  ${"" /* flex: 0 1 100px; */}
   justify-content: space-between;
   margin-bottom: 169px;
   @media (max-width: 1533px) {
