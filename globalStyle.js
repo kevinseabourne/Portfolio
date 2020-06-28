@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     color: #f5f5eb;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 2px;
+    letter-spacing: 1.3px;
     line-height: 1.47;
     height: 100vh;
     scroll-snap-type: y mandatory;

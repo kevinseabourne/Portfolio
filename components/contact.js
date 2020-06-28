@@ -94,16 +94,18 @@ const Container = styled.section`
   background-color: #08aeea;
   position: relative;
   background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
+  @media (max-width: 1030px) {
+    padding-bottom: 0px;
+  }
   @media (max-width: 900px) {
     height: 100%;
     min-height: 1024.56px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 769px) {
     padding-bottom: 0px;
   }
   @media (max-width: 415px) {
     height: 100%;
-    ${"" /* padding-bottom: 150px; */}
   }
 `;
 
@@ -213,6 +215,9 @@ const Links = styled.div`
   @media (max-width: 1533px) {
     margin-top: 50px;
   }
+  @media (max-width: 769px) {
+    margin-top: 0px;
+  }
 `;
 
 const shakeTop = keyframes`
@@ -296,6 +301,9 @@ const Copyright = styled.span`
   @media (max-width: 1533px) {
     margin-bottom: 50px;
     margin-top: 100px;
+  }
+  @media (max-width: 769px) {
+    margin-top: 57px;
   }
   @media (max-width: 600px) {
     margin-bottom: 25px;

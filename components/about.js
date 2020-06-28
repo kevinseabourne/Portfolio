@@ -107,7 +107,10 @@ const Wrapper = styled.div`
   width: 100%;
   border-radius: 12px;
   margin: 0px 15px;
-  @media (max-width: 1247px) {
+  height: inherit;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
 `;
@@ -121,17 +124,19 @@ const TextContainer = styled.div`
   &:nth-child(2) {
     margin: 0 20px;
   }
-  @media (max-width: 1247px) {
-    margin: 0 auto;
-    justify-content: center;
+  @media (max-width: 1024px) {
+    max-width: 380px;
+    width: 100%;
+    flex: 0 1 270px;
     &:nth-child(2) {
-      order: 2;
+      margin-top: 0px;
+      margin-bottom: 15px;
     }
     &:nth-child(1) {
-      padding-right: 1%;
+      margin-bottom: 15px;
     }
     &:nth-child(3) {
-      padding-left: 1%;
+      margin-bottom: 0px;
     }
   }
   @media (max-width: 796px) {
@@ -169,8 +174,8 @@ const TextContainer = styled.div`
 
 const Title = styled.h2`
   font-size: 4em;
-  @media (max-width: 1280px) {
-    font-size: 3.5em;
+  @media (max-width: 1024px) {
+    font-size: 2.35rem;
   }
   @media (max-width: 983px) {
     font-size: 3.8em;
@@ -207,8 +212,8 @@ const Line = styled.hr`
 const Text = styled.p`
   font-size: 1.6em;
   font-weight: 200;
-  @media (max-width: 1280px) {
-    font-size: 1.4em;
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
   }
   @media (max-width: 623px) {
     font-size: 1.22em;

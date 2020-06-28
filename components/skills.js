@@ -111,8 +111,9 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   padding: 160px 0px;
-  @media (max-height: 1240px) {
-    height: 100%;
+  @media (max-width: 1024px) {
+    height: 100vh;
+    padding: 0px;
   }
   @media (max-height: 984px) {
     height: 100%;
@@ -131,6 +132,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 0px 30px;
+  height: inherit;
   /* margin-top: 320px; */
   @media (max-width: 784px) {
     height: 100%;
@@ -140,6 +142,7 @@ const Wrapper = styled.div`
 
 const TitleContainer = styled.div`
   margin-bottom: 6em;
+  margin-top: 3em;
   @media (max-width: 986px) {
     margin-top: 3em;
   }
@@ -171,7 +174,8 @@ const Line = styled.hr`
   border: none;
   content: "";
   height: 4px;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -188,18 +192,16 @@ const ImagesContainer = styled.div`
   grid-auto-flow: row;
   grid-column-end: auto;
   grid-gap: 200px 12%;
-  @media (max-width: 1240px) {
-    grid-template-columns: repeat(2, minmax(10px, 180px));
-  }
-  @media (max-width: 1060px) {
-    grip-gap: 76px 0%;
+  @media (max-width: 1024px) {
+    grid-gap: 78px 13%;
+    grid-template-columns: repeat(2, minmax(10px, 170px));
   }
   @media (max-width: 638px) {
     grid-gap: 32px 13%;
     grid-template-columns: repeat(2, minmax(10px, 140px));
   }
   @media (max-width: 415px) {
-    grid-gap: 32px 13%;
+    grid-gap: 46px 13%;
     grid-template-columns: repeat(2, minmax(10px, 120px));
   }
 `;

@@ -162,8 +162,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 7px;
+  padding: 0px 17px;
   box-sizing: border-box;
+  @media (max-width: 415px) {
+    padding: 0px 7px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -178,6 +181,9 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   font-size: 4em;
   text-align: center;
+  @media (max-width: 1024px) {
+    font-size: 3.5rem;
+  }
   @media (max-width: 578px) {
     font-size: 3.2em;
   }
@@ -198,7 +204,8 @@ const Line = styled.hr`
   border: none;
   content: "";
   height: 4px;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -262,6 +269,9 @@ const TextContainer = styled.div`
 
 const ProjectTitle = styled.h1`
   font-size: 3rem;
+  @media (max-width: 1024px) {
+    font-size: 2.35rem;
+  }
   @media (max-width: 684px) {
     font-size: 2.3rem;
   }
@@ -278,11 +288,8 @@ const Description = styled.p`
   font-size: 1.5em;
   font-weight: 200;
   margin-bottom: 25px;
-  @media (max-width: 1204px) {
-    font-size: 1.3em;
-  }
-  @media (max-width: 984px) {
-    font-size: 1.3em;
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
   }
   @media (max-width: 584px) {
     font-size: 1.22em;
@@ -297,11 +304,8 @@ const Skills = styled.label`
   font-family: inherit;
   font-size: 1.3em;
   font-weight: 200;
-  @media (max-width: 1204px) {
-    font-size: 1.3em;
-  }
-  @media (max-width: 984px) {
-    font-size: 1.3em;
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
   }
   @media (max-width: 684px) {
     font-size: 1.2em;
