@@ -59,4 +59,6 @@ export default Home;
 
 const Container = styled.main`
   margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 `;
