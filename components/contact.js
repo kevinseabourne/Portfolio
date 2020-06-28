@@ -98,21 +98,20 @@ const Container = styled.section`
     padding-bottom: 0px;
   }
   @media (max-width: 900px) {
-    height: 100%;
     min-height: 1024.56px;
   }
   @media (max-width: 769px) {
     padding-bottom: 0px;
   }
   @media (max-width: 415px) {
-    height: 100%;
   }
 `;
 
 const Wrapper = styled.div`
   max-width: 1590px;
-  margin: 0 auto;
+  margin: auto;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
