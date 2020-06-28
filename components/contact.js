@@ -104,6 +104,7 @@ const Container = styled.section`
     padding-bottom: 0px;
   }
   @media (max-width: 415px) {
+    padding-bottom: 20px;
   }
 `;
 
