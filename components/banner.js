@@ -36,8 +36,9 @@ const Banner = (props) => {
 
 const Container = styled.section`
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   min-height: 650px;
-  max-height: 1240px;
+  ${"" /* max-height: 1240px; */}
   width: 100%;
   overflow: hidden;
   background-color: #08aeea;

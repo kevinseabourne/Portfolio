@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import AppContext from "../context/appContext";
+import { createGlobalStyle } from "styled-components";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
@@ -64,6 +65,7 @@ const Header = (props) => {
 
   return (
     <Container>
+      <GlobalStyle burgerMenu={burgerMenu} />
       {!burgerMenu && <HeaderContainer>{renderLinks()}</HeaderContainer>}
       <ResonsiveHeaderContainer id="responsive" ref={ref}>
         <BurgerMenu
@@ -251,9 +253,15 @@ const ResponsiveLinksContainer = styled.div`
   overflow: hidden;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   z-index: 3;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease;
   width: ${({ burgerMenu }) => (burgerMenu ? "280px" : "0px")};
   @media (max-width: 350px) {
     width: ${({ burgerMenu }) => (burgerMenu ? "250px" : "0px")};
+  }
+`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    overflow: ${({ burgerMenu }) => (burgerMenu ? "hidden" : "scroll")};
   }
 `;
