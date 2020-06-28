@@ -32,7 +32,7 @@ export default function Contact() {
 
   return (
     <Container ref={ref}>
-      {/* <Wrapper>
+      <Wrapper>
         <TitleContainer>
           <Title>Contact</Title>
           <Line />
@@ -77,7 +77,7 @@ export default function Contact() {
         >
           Copyright © 2020 Kevin Seabourne.
         </Copyright>
-      </Wrapper> */}
+      </Wrapper>
     </Container>
   );
 }

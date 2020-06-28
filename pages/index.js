@@ -41,7 +41,7 @@ const Home = ({ data }) => {
         <About />
         <Skills />
         <Projects data={dataArray} />
-        <Contact />
+        {/* <Contact /> */}
       </Container>
     </React.Fragment>
   );

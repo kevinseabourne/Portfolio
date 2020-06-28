@@ -27,7 +27,6 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: 1.3px;
     line-height: 1.47;
     height: 100vh;
-    background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
     scroll-snap-type: y mandatory;
   }
 
