@@ -111,7 +111,6 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: inherit;
   }
 `;
 
@@ -131,6 +130,8 @@ const TextContainer = styled.div`
     &:nth-child(2) {
       margin-top: 0px;
       margin-bottom: 15px;
+      margin-left: 0px;
+      margin-right: 0px;
     }
     &:nth-child(1) {
       margin-bottom: 15px;
@@ -142,6 +143,7 @@ const TextContainer = styled.div`
   @media (max-width: 796px) {
     justify-content: center;
     margin-bottom: 20px;
+    flex: 0 1;
     &:nth-child(2) {
       order: 1;
       margin-top: 35px;
@@ -156,18 +158,6 @@ const TextContainer = styled.div`
       order: 3;
       padding-left: 0%;
       margin-bottom: 35px;
-    }
-  }
-  @media (max-width: 600px) {
-    &:nth-child(2) {
-      margin-top: 0px;
-      margin-bottom: 15px;
-    }
-    &:nth-child(1) {
-      margin-bottom: 15px;
-    }
-    &:nth-child(3) {
-      margin-bottom: 0px;
     }
   }
 `;
