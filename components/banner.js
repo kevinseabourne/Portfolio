@@ -37,7 +37,6 @@ const Banner = (props) => {
 const Container = styled.section`
   height: 100vh;
   ${"" /* height: calc(var(--vh, 1vh) * 100); */}
-  min-height: 650px;
   ${"" /* max-height: 1240px; */}
   width: 100%;
   overflow: hidden;
@@ -142,7 +141,7 @@ const Line = styled.hr`
   margin-bottom: 1.5rem;
   margin-top: 1rem;
   margin-left: 0;
-  // width: 40.3rem; // to this with percentage i will have to add padding to the container to the the container longer.
+  // width: 40.3rem;
   width: 100%;
   border-radius: 2500px;
   position: relative;
