@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import LazyLoad from "react-lazyload";
 
-const ImageLoader = ({ src, alt, key, dataTestId, delay }) => {
+const ImageLoader = ({ src, alt, keyValue, dataTestId, delay }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const onLoad = () => {
@@ -11,13 +11,13 @@ const ImageLoader = ({ src, alt, key, dataTestId, delay }) => {
 
   return (
     <ImageContainer>
-      <LazyLoad key={key} once={true} offset={50} debounce={false}>
+      <LazyLoad key={keyValue} once={true} offset={50} debounce={false}>
         <Image
           isLoaded={isLoaded}
           onLoad={onLoad}
           src={src}
           alt={alt}
-          key={key}
+          key={keyValue}
           data-testid={dataTestId}
           delay={delay}
         />

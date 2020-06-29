@@ -249,7 +249,7 @@ const ResponsiveLinksContainer = styled.div`
   box-sizing: border-box;
   padding-top: 108px;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   z-index: 3;
@@ -261,7 +261,7 @@ const ResponsiveLinksContainer = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    overflow: ${({ burgerMenu }) => (burgerMenu ? "hidden" : "scroll")};
+ body {
+   overflow: ${({ burgerMenu }) => (burgerMenu ? "hidden" : "scroll")};
   }
 `;

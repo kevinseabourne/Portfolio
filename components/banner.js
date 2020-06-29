@@ -36,7 +36,7 @@ const Banner = (props) => {
 
 const Container = styled.section`
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
+  ${"" /* height: calc(var(--vh, 1vh) * 100); */}
   min-height: 650px;
   ${"" /* max-height: 1240px; */}
   width: 100%;
@@ -68,7 +68,7 @@ const TextContainer = styled.div`
 const JobTitle1 = styled.h1`
   font-size: 5rem;
   font-weight: 500;
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     font-size: 3.8rem;
   }
   @media (max-width: 736px) {
@@ -85,7 +85,7 @@ const JobTitle1 = styled.h1`
 const JobTitle2 = styled.h1`
   font-size: 5rem;
   font-weight: 500;
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     font-size: 3.8rem;
   }
   @media (max-width: 736px) {
@@ -103,7 +103,7 @@ const Name = styled.h2`
   font-size: 2.6rem;
   font-weight: 400;
   margin: 12px 0px;
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     font-size: 2.4rem;
   }
   @media (max-width: 736px) {

@@ -92,7 +92,7 @@ const Container = styled.section`
   @media (max-width: 984px) {
     padding: 35px 2px;
   }
-  @media (max-width: 415px) {
+  @media (max-width: 768px) {
     height: 100vh;
     align-items: center;
   }
@@ -119,14 +119,31 @@ const TextContainer = styled.div`
   font-size: 16.9px;
   flex-direction: column;
   text-align: center;
-  flex: 0 1 370px;
+  flex: 0 1 410px;
   &:nth-child(2) {
     margin: 0 20px;
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 1440px) {
     max-width: 380px;
     width: 100%;
-    flex: 0 1 270px;
+    flex: 0 1 430px;
+    &:nth-child(2) {
+      margin-top: 0px;
+      margin-bottom: 15px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    &:nth-child(1) {
+      margin-bottom: 15px;
+    }
+    &:nth-child(3) {
+      margin-bottom: 0px;
+    }
+  }
+  @media (max-width: 1280px) {
+    max-width: 380px;
+    width: 100%;
+    flex: 0 1 360px;
     &:nth-child(2) {
       margin-top: 0px;
       margin-bottom: 15px;
@@ -170,8 +187,8 @@ const Title = styled.h2`
   @media (max-width: 1024px) {
     font-size: 2.35rem;
   }
-  @media (max-width: 983px) {
-    font-size: 3.8em;
+  @media (max-width: 768px) {
+    font-size: 2.9em;
   }
   @media (max-width: 623px) {
     font-size: 3.12em;

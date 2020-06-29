@@ -61,7 +61,7 @@ const Skills = (props) => {
             <Child key={skills.indexOf(skill)}>
               <ImageLoader
                 src={skill.image}
-                key={skills.indexOf(skill)}
+                keyValue={skills.indexOf(skill)}
                 alt={skill.title}
                 dataTestId={skill.title}
                 delay={skills.indexOf(skill) * 120}
@@ -105,22 +105,28 @@ const Skills = (props) => {
 const Container = styled.section`
   height: 100vh;
   width: 100%;
+  min-height: 780px;
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #00cdac 0%, #02aab0 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 160px 0px;
+  @media (max-width: 2048px) {
+    padding: 0px;
+  }
+  @media (max-width: 1440px) {
+    min-height: 780px;
+  }
   @media (max-width: 1024px) {
     height: 100vh;
     padding: 0px;
   }
-  @media (max-height: 984px) {
-    height: 100%;
+  @media (max-width: 986px) {
+    min-height: 780px;
   }
-  @media (max-width: 984px) {
-    height: 100%;
-    padding: 0px 0px;
+  @media (max-width: 778px) {
+    min-height: 955px;
   }
 `;
 
@@ -143,17 +149,28 @@ const Wrapper = styled.div`
 const TitleContainer = styled.div`
   margin-bottom: 6em;
   margin-top: 3em;
+  @media (max-width: 1440px) {
+    margin-bottom: 3em;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 6em;
+    margin-bottom: 6em;
+  }
   @media (max-width: 986px) {
     margin-top: 3em;
   }
   @media (max-width: 778px) {
-    margin-bottom: 3em;
+    margin-top: 4em;
+    margin-bottom: 2em;
   }
 `;
 
 const Title = styled.h1`
   font-size: 4em;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 2.9em;
+  }
   @media (max-width: 578px) {
     font-size: 3.2em;
   }
@@ -192,9 +209,21 @@ const ImagesContainer = styled.div`
   grid-auto-flow: row;
   grid-column-end: auto;
   grid-gap: 200px 12%;
+  @media (max-width: 1440px) {
+    grid-gap: 118px 0%;
+    grid-template-columns: repeat(3, minmax(100px, 180px));
+  }
+  @media (max-width: 1280px) {
+    grid-gap: 118px 0%;
+    grid-template-columns: repeat(3, minmax(100px, 145px));
+  }
   @media (max-width: 1024px) {
     grid-gap: 78px 13%;
     grid-template-columns: repeat(2, minmax(10px, 170px));
+  }
+  @media (max-width: 768px) {
+    grid-gap: 57px 13%;
+    grid-template-columns: repeat(2, minmax(10px, 140px));
   }
   @media (max-width: 638px) {
     grid-gap: 32px 13%;
