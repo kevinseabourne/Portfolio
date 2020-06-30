@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
+import ImageLoader from "../components/common/imageLoader";
 import AppContext from "../context/appContext";
 import ContactForm from "./contactForm";
 import LazyLoad from "react-lazyload";
@@ -56,7 +57,7 @@ export default function Contact() {
                 href="https://github.com/kevinseabourne"
                 target="_blank"
               >
-                <GithubIcon src={githubIcon} />
+                <ImageLoader src={githubIcon} width={"70px"} alt="githubIcon" />
               </GithubLink>
             </LazyLoad>
             <LazyLoad once={true} height={70} offset={100}>
@@ -64,7 +65,11 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/kevin-seabourne-53833a19a/"
                 target="_blank"
               >
-                <LinkedInIcon src={linkedInIcon} />
+                <ImageLoader
+                  src={linkedInIcon}
+                  width={"70px"}
+                  alt="linkedInIcon"
+                />
               </LinkedInLink>
             </LazyLoad>
           </Links>
@@ -103,6 +108,9 @@ const Container = styled.section`
   @media (max-width: 769px) {
     padding-bottom: 0px;
   }
+  @media (max-height: 840px) {
+    min-height: 1086.56px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -139,6 +147,9 @@ const Title = styled.h1`
     font-size: 3.12em;
   }
   @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
+  @media (max-height: 840px) {
     font-size: 2.5em;
   }
 `;
@@ -307,6 +318,10 @@ const Copyright = styled.span`
     margin-bottom: 25px;
   }
   @media (max-width: 415px) {
+    font-size: 1.07rem;
+    margin-bottom: 50px;
+  }
+  @media (max-height: 840px) {
     font-size: 1.07rem;
     margin-bottom: 50px;
   }
