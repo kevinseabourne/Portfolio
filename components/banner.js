@@ -46,9 +46,15 @@ const Container = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    min-height: 320px;
+  }
   @media (max-width: 1086px) {
     display: flex;
     justify-content: center;
+  }
+  @media (max-height: 430px) {
+    padding-top: 30px;
   }
 `;
 
@@ -70,6 +76,9 @@ const JobTitle1 = styled.h1`
   @media (max-width: 1440px) {
     font-size: 3.8rem;
   }
+  @media (max-width: 1024px) {
+    font-size: 3.2rem;
+  }
   @media (max-width: 736px) {
     font-size: 4.3rem;
   }
@@ -77,6 +86,9 @@ const JobTitle1 = styled.h1`
     font-size: 3.2em;
   }
   @media (max-width: 415px) {
+    font-size: 2.3em;
+  }
+  @media (max-height: 840px) {
     font-size: 2.3em;
   }
 `;
@@ -87,6 +99,12 @@ const JobTitle2 = styled.h1`
   @media (max-width: 1440px) {
     font-size: 3.8rem;
   }
+  @media (max-width: 1024px) {
+    font-size: 3.2rem;
+  }
+  @media (max-width: 736px) {
+    font-size: 4.3rem;
+  }
   @media (max-width: 736px) {
     font-size: 4.3rem;
   }
@@ -94,6 +112,9 @@ const JobTitle2 = styled.h1`
     font-size: 3.2em;
   }
   @media (max-width: 415px) {
+    font-size: 2.3em;
+  }
+  @media (max-height: 840px) {
     font-size: 2.3em;
   }
 `;
@@ -105,6 +126,9 @@ const Name = styled.h2`
   @media (max-width: 1440px) {
     font-size: 2.4rem;
   }
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
   @media (max-width: 736px) {
     font-size: 1.9rem;
   }
@@ -113,6 +137,9 @@ const Name = styled.h2`
   }
   @media (max-width: 415px) {
     font-size: 1.5em;
+  }
+  @media (max-height: 840px) {
+    font-size: 1.6em;
   }
 `;
 

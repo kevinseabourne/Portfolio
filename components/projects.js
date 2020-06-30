@@ -193,6 +193,9 @@ const Title = styled.h1`
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
+  @media (max-height: 840px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Line = styled.hr`
@@ -258,6 +261,9 @@ const Image = styled.div`
     padding-bottom: 67%;
     margin-bottom: 30px;
   }
+  @media (max-height: 840px) {
+    padding-bottom: 47%;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -288,6 +294,10 @@ const ProjectTitle = styled.h1`
     font-size: 2rem;
     text-align: center;
   }
+  @media (max-height: 840px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 const Description = styled.p`
@@ -304,6 +314,10 @@ const Description = styled.p`
     font-size: 1.22em;
   }
   @media (max-width: 415px) {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  @media (max-height: 840px) {
     font-size: 1.05rem;
     text-align: center;
   }
@@ -329,6 +343,10 @@ const Skills = styled.label`
     font-size: 1rem;
     text-align: center;
   }
+  @media (max-height: 840px) {
+    font-size: 1rem;
+    text-align: center;
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -345,11 +363,17 @@ const ButtonsContainer = styled.div`
   @media (max-width: 750px) {
     width:100%:
   }
+  @media (max-height: 840px) {
+    width: 100%;
+  }
 `;
 
 const InnerButtonContainer = styled.div`
   width: auto;
   @media (max-width: 750px) {
+    width: 100%;
+  }
+  @media (max-height: 840px) {
     width: 100%;
   }
 `;
@@ -381,6 +405,10 @@ const DemoButton = styled.button`
   @media (max-width: 584px) {
     padding: 13.5px 24px;
   }
+  @media (max-height: 840px) {
+    padding: 13.5px 24px;
+    width: 95%;
+  }
 `;
 
 const CodeButton = styled.button`
@@ -405,6 +433,10 @@ const CodeButton = styled.button`
   }
   @media (max-width: 584px) {
     padding: 13.5px 24px;
+  }
+  @media (max-height: 840px) {
+    padding: 13.5px 24px;
+    width: 95%;
   }
 `;
 export default Projects;

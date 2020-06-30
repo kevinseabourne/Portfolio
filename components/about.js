@@ -96,6 +96,9 @@ const Container = styled.section`
     height: 100vh;
     align-items: center;
   }
+  @media (max-height: 840px) {
+    min-height: 860px;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -157,6 +160,9 @@ const TextContainer = styled.div`
       margin-bottom: 0px;
     }
   }
+  @media (max-width: 1024px) {
+    flex: 1 1 253px;
+  }
   @media (max-width: 796px) {
     justify-content: center;
     margin-bottom: 20px;
@@ -196,6 +202,9 @@ const Title = styled.h2`
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
+  @media (max-height: 840px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Line = styled.hr`
@@ -222,6 +231,7 @@ const Line = styled.hr`
 const Text = styled.p`
   font-size: 1.6em;
   font-weight: 200;
+  text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.2);
   @media (max-width: 1440px) {
     font-size: 1.4rem;
   }
@@ -235,7 +245,10 @@ const Text = styled.p`
     font-size: 1.07rem;
     letter-spacing: 1.4px;
   }
-  text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.2);
+  @media (max-height: 840px) {
+    font-size: 1.07rem;
+    letter-spacing: 1.4px;
+  }
 `;
 
 export default About;

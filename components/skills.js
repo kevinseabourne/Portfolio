@@ -63,6 +63,7 @@ const Skills = (props) => {
                 src={skill.image}
                 keyValue={skills.indexOf(skill)}
                 alt={skill.title}
+                width={"100%"}
                 dataTestId={skill.title}
                 delay={skills.indexOf(skill) * 120}
               />
@@ -119,7 +120,8 @@ const Container = styled.section`
     min-height: 780px;
   }
   @media (max-width: 1024px) {
-    height: 100vh;
+    ${"" /* height: 100vh; */}
+    min-height: 954px;
     padding: 0px;
   }
   @media (max-width: 986px) {
@@ -127,6 +129,12 @@ const Container = styled.section`
   }
   @media (max-width: 778px) {
     min-height: 955px;
+  }
+  @media (max-width: 320px) {
+    min-height: 771px;
+  }
+  @media (max-height: 840px) {
+    min-height: 860px;
   }
 `;
 
@@ -138,7 +146,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 0px 30px;
-  height: inherit;
+  height: 100%;
   /* margin-top: 320px; */
   @media (max-width: 784px) {
     height: 100%;
@@ -175,6 +183,9 @@ const Title = styled.h1`
     font-size: 3.2em;
   }
   @media (max-width: 415px) {
+    font-size: 2.5em;
+  }
+  @media (max-height: 840px) {
     font-size: 2.5em;
   }
 `;
@@ -217,10 +228,6 @@ const ImagesContainer = styled.div`
     grid-gap: 118px 0%;
     grid-template-columns: repeat(3, minmax(100px, 145px));
   }
-  @media (max-width: 1024px) {
-    grid-gap: 78px 13%;
-    grid-template-columns: repeat(2, minmax(10px, 170px));
-  }
   @media (max-width: 768px) {
     grid-gap: 57px 13%;
     grid-template-columns: repeat(2, minmax(10px, 140px));
@@ -230,6 +237,10 @@ const ImagesContainer = styled.div`
     grid-template-columns: repeat(2, minmax(10px, 140px));
   }
   @media (max-width: 415px) {
+    grid-gap: 46px 13%;
+    grid-template-columns: repeat(2, minmax(10px, 120px));
+  }
+  @media (max-height: 840px) {
     grid-gap: 46px 13%;
     grid-template-columns: repeat(2, minmax(10px, 120px));
   }
@@ -281,6 +292,9 @@ const SubTitle = styled.label`
     font-size: 1.4rem;
   }
   @media (max-width: 415px) {
+    font-size: 1.07rem;
+  }
+  @media (max-height: 840px) {
     font-size: 1.07rem;
   }
 `;
