@@ -232,7 +232,7 @@ const ImagesContainer = styled.div`
     grid-template-columns: repeat(3, minmax(100px, 145px));
   }
   @media (max-width: 1024px) {
-    grid-gap: 152px 5%;
+    grid-gap: 145px 5%;
     grid-template-columns: repeat(2, minmax(10px, 150px));
   }
   @media (max-width: 768px) {
