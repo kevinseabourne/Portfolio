@@ -87,7 +87,7 @@ const Projects = ({ data }) => {
   };
 
   const handleRightText = (website) => {
-    if (innerWidth <= 984) {
+    if (innerWidth <= 1024) {
       return false;
     }
     if (data.indexOf(website) % 2 !== 0) {
@@ -97,7 +97,7 @@ const Projects = ({ data }) => {
   };
 
   const handleLeftText = (website) => {
-    if (innerWidth <= 984) {
+    if (innerWidth <= 1024) {
       return true;
     }
     if (data.indexOf(website) % 2 === 0) {
@@ -143,14 +143,11 @@ const Loading = styled.div``;
 const Container = styled.section`
   height: 100%;
   overflow: hidden;
-  max-height: 4600px;
+  ${"" /* max-height: 4600px; */}
   width: 100%;
   background-image: linear-gradient(0deg, #ff9a9e 0%, #fad0c4 100%);
   @media (max-width: 984px) {
     max-height: 5500px;
-  }
-  @media (min-width: 120px) {
-    min-height: ;
   }
 `;
 
@@ -164,6 +161,9 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 0px 36px;
   box-sizing: border-box;
+  @media (max-width: 1440px) {
+    padding: 0px 88px;
+  }
   @media (max-width: 425px) {
     padding: 0px 7px;
   }
@@ -184,16 +184,10 @@ const Title = styled.h1`
   @media (max-width: 1440px) {
     font-size: 3.2rem;
   }
-  @media (max-width: 1024px) {
-    font-size: 3.5rem;
-  }
-  @media (max-width: 578px) {
-    font-size: 3.2em;
-  }
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 2.5em;
   }
 `;
@@ -235,7 +229,7 @@ const Project = styled.div`
   margin-bottom: 16%;
   max-height: 500px;
   position: relative;
-  @media (max-width: 984px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     justify-content: center;
     max-height: 2000px;
@@ -255,13 +249,13 @@ const Image = styled.div`
   &:hover {
     cursor: pointer;
   }
-  @media (max-width: 984px) {
+  @media (max-width: 1024px) {
     margin: 0 auto;
     width: 100%;
     padding-bottom: 67%;
     margin-bottom: 30px;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     padding-bottom: 47%;
   }
 `;
@@ -271,7 +265,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media (max-width: 984px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -279,9 +273,6 @@ const TextContainer = styled.div`
 const ProjectTitle = styled.h1`
   font-size: 3rem;
   @media (max-width: 1440px) {
-    font-size: 2.8rem;
-  }
-  @media (max-width: 1024px) {
     font-size: 2.35rem;
   }
   @media (max-width: 684px) {
@@ -294,7 +285,7 @@ const ProjectTitle = styled.h1`
     font-size: 2rem;
     text-align: center;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 2rem;
     text-align: center;
   }
@@ -305,9 +296,6 @@ const Description = styled.p`
   font-weight: 200;
   margin-bottom: 25px;
   @media (max-width: 1440px) {
-    font-size: 1.4rem;
-  }
-  @media (max-width: 1024px) {
     font-size: 1.2rem;
   }
   @media (max-width: 584px) {
@@ -317,7 +305,7 @@ const Description = styled.p`
     font-size: 1.05rem;
     text-align: center;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 1.05rem;
     text-align: center;
   }
@@ -328,9 +316,6 @@ const Skills = styled.label`
   font-size: 1.3em;
   font-weight: 200;
   @media (max-width: 1440px) {
-    font-size: 1.3rem;
-  }
-  @media (max-width: 1024px) {
     font-size: 1.1rem;
   }
   @media (max-width: 684px) {
@@ -343,7 +328,7 @@ const Skills = styled.label`
     font-size: 1rem;
     text-align: center;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 1rem;
     text-align: center;
   }
@@ -353,6 +338,9 @@ const ButtonsContainer = styled.div`
   margin-top: 42px;
   display: flex;
   flex-direction: row;
+  @media (max-width: 1024px) {
+    width:100%:
+  }
   @media (max-width: 984px) {
     margin-bottom: 30px;
   }
@@ -360,10 +348,7 @@ const ButtonsContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  @media (max-width: 750px) {
-    width:100%:
-  }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     width: 100%;
   }
 `;
@@ -373,7 +358,7 @@ const InnerButtonContainer = styled.div`
   @media (max-width: 750px) {
     width: 100%;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     width: 100%;
   }
 `;
@@ -396,7 +381,7 @@ const DemoButton = styled.button`
     transform: scale(1) translateY(-3.5px);
     cursor: pointer;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 1024px) {
     width: 95%;
   }
   @media (max-width: 319px) {
@@ -405,7 +390,7 @@ const DemoButton = styled.button`
   @media (max-width: 584px) {
     padding: 13.5px 24px;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     padding: 13.5px 24px;
     width: 95%;
   }
@@ -434,7 +419,7 @@ const CodeButton = styled.button`
   @media (max-width: 584px) {
     padding: 13.5px 24px;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     padding: 13.5px 24px;
     width: 95%;
   }

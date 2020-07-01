@@ -133,8 +133,8 @@ const Container = styled.section`
   @media (max-width: 320px) {
     min-height: 771px;
   }
-  @media (max-height: 840px) {
-    min-height: 860px;
+  @media (max-height: 500px) {
+    min-height: 1010px;
   }
 `;
 
@@ -176,6 +176,9 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   font-size: 4em;
   text-align: center;
+  @media (max-width: 1440px) {
+    font-size: 3.2rem;
+  }
   @media (max-width: 768px) {
     font-size: 2.9em;
   }
@@ -185,7 +188,7 @@ const Title = styled.h1`
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 2.5em;
   }
 `;
@@ -228,6 +231,10 @@ const ImagesContainer = styled.div`
     grid-gap: 118px 0%;
     grid-template-columns: repeat(3, minmax(100px, 145px));
   }
+  @media (max-width: 1024px) {
+    grid-gap: 152px 5%;
+    grid-template-columns: repeat(2, minmax(10px, 150px));
+  }
   @media (max-width: 768px) {
     grid-gap: 57px 13%;
     grid-template-columns: repeat(2, minmax(10px, 140px));
@@ -240,7 +247,7 @@ const ImagesContainer = styled.div`
     grid-gap: 46px 13%;
     grid-template-columns: repeat(2, minmax(10px, 120px));
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     grid-gap: 46px 13%;
     grid-template-columns: repeat(2, minmax(10px, 120px));
   }
@@ -254,30 +261,6 @@ const Child = styled.div`
   ${"" /* align-items: center; */}
 `;
 
-const Placeholder = styled.div`
-  min-height: 40px;
-  height: 200px;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 13.3px;
-`;
-
-const ImageContainer = styled.div`
-  background-color: grey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 13.3px;
-`;
-
-const Image = styled.img`
-  margin: 0 auto;
-  width: 100%;
-  ${"" /* padding-top: 100%; */}
-  object-fit: contain;
-  object-position: center;
-`;
-
 const SubTitle = styled.label`
   text-align: center;
   font-size: 2.2rem;
@@ -285,8 +268,8 @@ const SubTitle = styled.label`
   text-transform: uppercase;
   margin-top: auto;
   margin-bottom: 0.5rem;
-  @media (max-width: 1200px) {
-    font-size: 2rem;
+  @media (max-width: 1440px) {
+    font-size: 1.4rem;
   }
   @media (max-width: 760px) {
     font-size: 1.4rem;
@@ -294,7 +277,7 @@ const SubTitle = styled.label`
   @media (max-width: 415px) {
     font-size: 1.07rem;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 1.07rem;
   }
 `;

@@ -108,8 +108,8 @@ const Container = styled.section`
   @media (max-width: 769px) {
     padding-bottom: 0px;
   }
-  @media (max-height: 840px) {
-    min-height: 1086.56px;
+  @media (max-height: 500px) {
+    min-height: 1000px;
   }
 `;
 
@@ -149,7 +149,7 @@ const Title = styled.h1`
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 2.5em;
   }
 `;
@@ -321,7 +321,7 @@ const Copyright = styled.span`
     font-size: 1.07rem;
     margin-bottom: 50px;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 1.07rem;
     margin-bottom: 50px;
   }

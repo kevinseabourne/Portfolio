@@ -85,18 +85,21 @@ const Container = styled.section`
   align-items: center;
   padding: 35px 20px;
   box-sizing: border-box;
-  @media (max-width: 790px) {
-    height: 100%;
-    align-items: flex-start;
+  @media (max-width: 1024px) {
+    min-height: 957px;
   }
   @media (max-width: 984px) {
     padding: 35px 2px;
+  }
+  @media (max-width: 790px) {
+    height: 100%;
+    align-items: flex-start;
   }
   @media (max-width: 768px) {
     height: 100vh;
     align-items: center;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     min-height: 860px;
   }
 `;
@@ -161,7 +164,10 @@ const TextContainer = styled.div`
     }
   }
   @media (max-width: 1024px) {
-    flex: 1 1 253px;
+    flex: 1 1;
+    &:nth-child(2) {
+      margin: 50px 0px;
+    }
   }
   @media (max-width: 796px) {
     justify-content: center;
@@ -191,10 +197,7 @@ const Title = styled.h2`
     font-size: 3.2rem;
   }
   @media (max-width: 1024px) {
-    font-size: 2.35rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 2.9em;
+    font-size: 2.9rem;
   }
   @media (max-width: 623px) {
     font-size: 3.12em;
@@ -202,7 +205,7 @@ const Title = styled.h2`
   @media (max-width: 415px) {
     font-size: 2.5em;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 2.5em;
   }
 `;
@@ -233,7 +236,7 @@ const Text = styled.p`
   font-weight: 200;
   text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.2);
   @media (max-width: 1440px) {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   @media (max-width: 1024px) {
     font-size: 1.2rem;
@@ -245,7 +248,7 @@ const Text = styled.p`
     font-size: 1.07rem;
     letter-spacing: 1.4px;
   }
-  @media (max-height: 840px) {
+  @media (max-height: 500px) {
     font-size: 1.07rem;
     letter-spacing: 1.4px;
   }
