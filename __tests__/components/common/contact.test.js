@@ -7,6 +7,8 @@ import "@testing-library/jest-dom";
 
 jest.mock("../../../pages/api/email");
 
+jest.setTimeout(12500);
+
 beforeAll(() => {
   jest.useFakeTimers();
 });
