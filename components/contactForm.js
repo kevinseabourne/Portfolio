@@ -11,6 +11,7 @@ class ContactForm extends ReusableForm {
     this.nameRef = React.createRef();
     this.emailRef = React.createRef();
     this.messageRef = React.createRef();
+    this.timeout = null;
   }
   state = {
     data: {
@@ -68,14 +69,25 @@ class ContactForm extends ReusableForm {
       }),
   };
 
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  }
+
   doSubmit = async () => {
     this.setState({ status: "pending" });
     const response = await sendEmail(this.state.data);
     if (response && response.status === 200) {
       this.clearInputsAfterEmailSent();
       this.setState({ status: "resolved" });
+
+      this.timeout = setTimeout(() => {
+        this.setState({ status: "idle" });
+      }, 12000);
+    } else {
+      this.setState({ status: "rejected" });
     }
-    this.setState({ status: "rejected" });
   };
 
   clearInputsAfterEmailSent = () => {
