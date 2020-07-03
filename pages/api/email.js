@@ -20,14 +20,6 @@ export async function sendEmail(data) {
       process.env.NEXT_PUBLIC_EMAILJS_USER_ID
     )
     .then((response) => {
-      toast.success("Email Sent ✅", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
       if (response && response.status === 200) {
         return response;
       }
