@@ -110,7 +110,7 @@ export default class ReusableForm extends Component {
     const handleLoading = (status, label) => {
       if (status === "pending" || status === "resolved") {
         return (
-          <LoadingContainer viewBox="0 0 35 35" data-testid="loading-spinner">
+          <LoadingContainer viewBox="35 35 35 35" data-testid="loading-spinner">
             {status === "resolved" && <Tick data-testid="sentCheckmarkIcon" />}
             <Sv status={status}>
               <circle
