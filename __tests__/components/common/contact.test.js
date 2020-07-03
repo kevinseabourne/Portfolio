@@ -1,25 +1,17 @@
 import React from "react";
 import { render } from "../../test-utils";
 import Contact from "../../../components/contact";
-import { fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, waitFor, cleanup } from "@testing-library/react";
 import { sendEmail } from "../../../pages/api/email";
 import "@testing-library/jest-dom";
 
 jest.mock("../../../pages/api/email");
 
-jest.setTimeout(12500);
-
-beforeAll(() => {
-  jest.useFakeTimers();
-});
+jest.setTimeout(10000);
 
 afterEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-});
-
-afterAll(() => {
-  jest.useRealTimers();
 });
 
 describe("doSubmit", () => {
@@ -32,7 +24,7 @@ describe("doSubmit", () => {
     // });
 
     const handleScrollTo = jest.fn();
-    const { getByTestId, queryByText, debug } = render(
+    const { getByTestId, queryByText, queryByTestId } = render(
       <Contact handleScrollTo={handleScrollTo} />
     );
     const nameInput = getByTestId("name-input");
@@ -53,14 +45,37 @@ describe("doSubmit", () => {
       message: "message",
     });
 
+    expect(getByTestId("Send")).not.toHaveTextContent("Send");
     expect(getByTestId("loading-spinner"));
 
     await waitFor(() => expect(nameInput.value).toBe(""));
     await waitFor(() => expect(emailInput.value).toBe(""));
     await waitFor(() => expect(messageInput.value).toBe(""));
-    await waitFor(() => expect(sendButton).toHaveTextContent("Send"), {
-      timeout: 13000,
+    await waitFor(() =>
+      expect(getByTestId("loading-spinner")).toBeInTheDocument()
+    );
+    await waitFor(() =>
+      expect(getByTestId("sentCheckmarkIcon")).toBeInTheDocument()
+    );
+
+    // checkmark icon will appear for 9 seconds and then disappear
+
+    await waitFor(
+      () => expect(queryByTestId("loading-spinner")).not.toBeInTheDocument(),
+      {
+        timeout: 10000,
+      }
+    );
+    await waitFor(
+      () => expect(queryByTestId("sentCheckmarkIcon")).not.toBeInTheDocument(),
+      {
+        timeout: 10000,
+      }
+    );
+    await waitFor(() => expect(getByTestId("Send")).toBeInTheDocument(), {
+      timeout: 10000,
     });
+    cleanup();
   });
 
   it("should not clear the inputs if the response status is not 200", async () => {

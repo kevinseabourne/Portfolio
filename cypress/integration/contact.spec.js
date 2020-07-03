@@ -55,12 +55,15 @@ describe("Failed Request - Error Message", () => {
     const sendButton = cy.findByText("Send");
     sendButton.click({ force: true });
 
-    const loadingSpinner = cy.findByTestId("loading-spinner");
-    sentCheckmarkIcon.should("be.visible");
+    const loadingSpinner = cy.get('[data-testid="loading-spinner"]');
+    loadingSpinner.should("be.visible");
     // Assertion //
 
-    const sentCheckmarkIcon = cy.wait(12000).findByTestId("sentCheckmarkIcon");
+    const sentCheckmarkIcon = cy
+      .wait(13000)
+      .get('[data-testid="sentCheckmarkIcon"]');
     sentCheckmarkIcon.should("be.visible");
+    loadingSpinner.should("be.visible");
 
     // after a successfull post request the sent icons stay visible for 12 seconds then goes away
     sendButton.should("be.visible");
