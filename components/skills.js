@@ -106,13 +106,12 @@ const Skills = (props) => {
 const Container = styled.section`
   height: 100vh;
   width: 100%;
-  min-height: 780px;
+  min-height: 1240px;
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #00cdac 0%, #02aab0 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 160px 0px;
   @media (max-width: 2048px) {
     padding: 0px;
   }
@@ -156,7 +155,7 @@ const Wrapper = styled.div`
 
 const TitleContainer = styled.div`
   margin-bottom: 6em;
-  margin-top: 3em;
+  margin-top: 9em;
   @media (max-width: 1440px) {
     margin-bottom: 3em;
   }
