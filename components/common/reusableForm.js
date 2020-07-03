@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import { Input } from "./input";
 import { TextBox } from "./textBox";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 const loadingIcon = "/images/loadingIcon.svg";
 
 export default class ReusableForm extends Component {
@@ -107,17 +107,37 @@ export default class ReusableForm extends Component {
   }
 
   renderButton = (label, status) => {
+    const handleLoading = (status, label) => {
+      if (status === "pending" || status === "resolved") {
+        return (
+          <LoadingContainer viewBox="0 0 35 35" data-testid="loading-spinner">
+            {status === "resolved" && <Tick data-testid="sentCheckmarkIcon" />}
+            <Sv status={status}>
+              <circle
+                id="path"
+                cx="17.5"
+                cy="17.5"
+                r="16.1"
+                fill="none"
+              ></circle>
+            </Sv>
+            {/* <Loading>
+              <Spinner status={status} data-testid="loading-spinner"></Spinner>
+              {status === "resolved" && <Tick />}
+            </Loading> */}
+          </LoadingContainer>
+        );
+      } else {
+        return label;
+      }
+    };
     return (
       <SubmitButton
         id={label}
         data-testid={label}
         onClick={(e) => this.handleSubmit(status, e)}
       >
-        {status === "pending" ? (
-          <Loading data-testid="loading-spinner" loadingIcon={loadingIcon} />
-        ) : (
-          label
-        )}
+        {handleLoading(status, label)}
       </SubmitButton>
     );
   };
@@ -126,8 +146,8 @@ export default class ReusableForm extends Component {
 const SubmitButton = styled.button`
   min-width: 91.3px;
   min-height: 49px;
+  max-height: 49px;
   font-size: 1.1em;
-  padding: 14px 24px;
   border-radius: 40px;
   border: none;
   color: #f5f5eb;
@@ -141,7 +161,6 @@ const SubmitButton = styled.button`
   transform: translateY(0px) scale(1);
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
-  position: relative;
   &:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1) translateY(-3.5px);
@@ -155,15 +174,259 @@ const SubmitButton = styled.button`
   }
 `;
 
+// try svg
+
+const rotate = keyframes`
+ 100% {
+   transform: rotate(360deg);
+ }
+`;
+
+const dash = keyframes`
+0% {
+stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+}
+
+50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+}
+100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+}
+`;
+
+const dashOut = keyframes`
+0% {
+stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+}
+100% {
+    stroke-dasharray: 200, 200;
+    stroke-dashoffset: 1;
+}
+`;
+
+const pendingAnimation = css`
+  ${dash} 1.5s ease infinite;
+`;
+
+const resolvedAnimation = css`
+  ${dashOut} 1.5s ease forwards;
+`;
+
+const rotateAnimation = css`
+  ${rotate} 2s linear infinite;
+`;
+
+const Sv = styled.svg`
+  animation: ${({ status }) =>
+    status === "resolved" ? "none" : rotateAnimation};
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  & #path {
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    display: block;
+    fill: transparent;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-dasharray: ${({ status }) => (status === "resolved" ? 1 : 283)};
+    stroke-dashoffset: 280;
+    stroke-width: 1.4px;
+    transform-origin: 50% 50%;
+    animation: ${({ status }) =>
+      status === "resolved" ? resolvedAnimation : pendingAnimation};
+    animation-iteration-count: ${({ status }) =>
+      status === "resolved" ? 1 : "infinite"};
+  }
+`;
+
+const LoadingContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Loading = styled.div`
+  width: 35px;
+  height: 35px;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+const spin = keyframes`
+ 0% {
+   border-right: 1.4px solid rgba(245, 245, 247,0);
+   border-left: 1.4px solid rgba(245, 245, 247,0);
+   border-top: 1.4px solid rgba(245, 245, 247,1);
+   border-bottom: 1.4px solid rgba(245, 245, 247,0);
+   transform: rotate(0deg);
+ }
+ 100% {
+    border-top: 1.4px solid rgba(245, 245, 247, 1);
+    border-right: 1.4px solid rgba(245, 245, 247,0);
+    border-left: 1.4px solid rgba(245, 245, 247,0);
+    border-bottom: 1.4px solid rgba(245, 245, 247,0);
+   transform: rotate(360deg);
+ }
+`;
+
+const spinIt = keyframes`
+ 0% {
+   transform: rotate(0deg);
+   border-right: 1.4px solid rgba(245, 245, 247,0);
+   border-left: 1.4px solid rgba(245, 245, 247,0);
+   border-top: 1.4px solid rgba(245, 245, 247,0);
+   border-bottom: 1.4px solid rgba(245, 245, 247,0);
+ }
+ 25% {
+   border-top: 1.4px solid rgba(245, 245, 247, 0);
+   border-right: 1.4px solid rgba(245, 245, 247,0);
+   border-left: 1.4px solid rgba(245, 245, 247,0);
+   border-bottom: 1.4px solid rgba(245, 245, 247,1);
+ }
+ 50% {
+   border-left: 1.4px solid rgba(245, 245, 247, 1);
+   border-right: 1.4px solid rgba(245, 245, 247,0);
+   border-top: 1.4px solid rgba(245, 245, 247, 0);
+   border-bottom: 1.4px solid rgba(245, 245, 247,1);
+ }
+ 75% {
+   border-bottom: 1.4px solid rgba(245, 245, 247, 1);
+   border-right: 1.4px solid rgba(245, 245, 247,0);
+   border-left: 1.4px solid rgba(245, 245, 247, 1);
+   border-top: 1.4px solid rgba(245, 245, 247, 1);
+ }
+ 100% {
+   border-right: 1.4px solid rgba(245, 245, 247, 1);
+   border-left: 1.4px solid rgba(245, 245, 247, 1);
+   border-top: 1.4px solid rgba(245, 245, 247, 1);
+   border-bottom: 1.4px solid rgba(245, 245, 247, 1);
+   transform: rotate(360deg);
+ }
+`;
+
+const afterAnimation = keyframes`
+ 0% {
+   height: 0%;
+   transform: scaleX(0);
+   border-bottom: 1.4px solid rgb(33, 75, 255, 0);
+ }
+ 100% {
+    transform: scaleX(1);
+    border-bottom: 1.4px solid rgb(33, 75, 255, 1);
+ }
+`;
+
+const Spinner = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0 auto;
-  background-image: url(${(props) => props.loadingIcon});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 42%;
+  background: transparent;
+  border-right: 1.4px solid rgba(245, 245, 247, 1);
+  border-left: 1.4px solid rgba(245, 245, 247, 1);
+  border-radius: 100%;
+  ${
+    "" /* animation: ${({ status }) =>
+    status === "pending"
+      ? pendingAnimation
+      : status === "resolved"
+      ? resolvedAnimation
+      : "none"}; */
+  }
+  animation-iteration-count: ${({ status }) =>
+    status === "resolved" ? 1 : "infinite"};
+  transition: all 0.3s ease-out;
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    position: absolute;
+    border-radius: 100%;
+    border-top: 1.4px solid red;
+    ${"" /* animation: ${afterAnimation} 0.8s ease infinite; */}
+  }
+  &::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    position: absolute;
+    border-radius: 100%;
+
+    border-bottom: 1.4px solid blue;
+    animation: ${afterAnimation} 0.8s ease infinite;
+    transform-origin: right center;
+  }
+`;
+
+const checkmark = keyframes`
+0% {
+  height: 0;
+  width: 0em;
+  border-right: 2.5px solid rgba(245, 245, 247, 0);
+  border-top: 2.5px solid rgba(245, 245, 247, 0);
+}
+50% {
+    border-top: 2.5px solid rgba(245, 245, 247, 1);
+    width: 0.34em;
+    height: 0;
+
+}
+100% {
+  height: 1em;
+      width: 0.34em;
+  border-right: 2.5px solid rgba(245, 245, 247, 1);
+  border-top: 2.5px solid rgba(245, 245, 247, 1);
+}
+`;
+
+const Tick = styled.div`
+  &::after {
+    opacity: 1;
+    height: 1em;
+    width: 0.34em;
+    transform-origin: left top;
+    border-right: 2.5px solid rgba(245, 245, 247, 1);
+    border-top: 2.5px solid rgba(245, 245, 247, 1);
+    content: "";
+    left: 0px;
+    right: 12px;
+    margin: 0 auto;
+    top: 27.6px;
+    position: absolute;
+    animation: ${checkmark} 0.5s ease;
+    transform: scaleX(-1) rotate(135deg);
+    border-top-right-radius: 9%;
+    border-top-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+  }
 `;
