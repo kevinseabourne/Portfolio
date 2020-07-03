@@ -129,6 +129,9 @@ const Container = styled.section`
   @media (max-width: 778px) {
     min-height: 955px;
   }
+  @media (max-width: 425px) {
+    min-height: 780px;
+  }
   @media (max-width: 320px) {
     min-height: 771px;
   }

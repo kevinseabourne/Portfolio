@@ -99,6 +99,9 @@ const Container = styled.section`
     height: 100vh;
     align-items: center;
   }
+  @media (max-width: 425px) {
+    min-height: 799px;
+  }
   @media (max-height: 500px) {
     min-height: 860px;
   }
