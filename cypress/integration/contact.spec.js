@@ -60,7 +60,7 @@ describe("Failed Request - Error Message", () => {
     // Assertion //
 
     const sentCheckmarkIcon = cy
-      .wait(13000)
+      .wait(3000)
       .get('[data-testid="sentCheckmarkIcon"]');
     sentCheckmarkIcon.should("be.visible");
     loadingSpinner.should("be.visible");

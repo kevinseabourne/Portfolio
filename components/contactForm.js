@@ -84,7 +84,7 @@ class ContactForm extends ReusableForm {
 
       this.timeout = setTimeout(() => {
         this.setState({ status: "idle" });
-      }, 12000);
+      }, 9000);
     } else {
       this.setState({ status: "rejected" });
     }

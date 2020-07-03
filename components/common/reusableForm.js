@@ -110,9 +110,9 @@ export default class ReusableForm extends Component {
     const handleLoading = (status, label) => {
       if (status === "pending" || status === "resolved") {
         return (
-          <LoadingContainer viewBox="35 35 35 35" data-testid="loading-spinner">
+          <LoadingContainer viewBox="35 35 35 35">
             {status === "resolved" && <Tick data-testid="sentCheckmarkIcon" />}
-            <Sv status={status}>
+            <Sv status={status} data-testid="loading-spinner">
               <circle
                 id="path"
                 cx="17.5"
@@ -252,74 +252,12 @@ const Sv = styled.svg`
 `;
 
 const LoadingContainer = styled.div`
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`;
-
-const Loading = styled.div`
-  width: 35px;
-  height: 35px;
-  position: relative;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
-const spin = keyframes`
- 0% {
-   border-right: 1.4px solid rgba(245, 245, 247,0);
-   border-left: 1.4px solid rgba(245, 245, 247,0);
-   border-top: 1.4px solid rgba(245, 245, 247,1);
-   border-bottom: 1.4px solid rgba(245, 245, 247,0);
-   transform: rotate(0deg);
- }
- 100% {
-    border-top: 1.4px solid rgba(245, 245, 247, 1);
-    border-right: 1.4px solid rgba(245, 245, 247,0);
-    border-left: 1.4px solid rgba(245, 245, 247,0);
-    border-bottom: 1.4px solid rgba(245, 245, 247,0);
-   transform: rotate(360deg);
- }
-`;
-
-const spinIt = keyframes`
- 0% {
-   transform: rotate(0deg);
-   border-right: 1.4px solid rgba(245, 245, 247,0);
-   border-left: 1.4px solid rgba(245, 245, 247,0);
-   border-top: 1.4px solid rgba(245, 245, 247,0);
-   border-bottom: 1.4px solid rgba(245, 245, 247,0);
- }
- 25% {
-   border-top: 1.4px solid rgba(245, 245, 247, 0);
-   border-right: 1.4px solid rgba(245, 245, 247,0);
-   border-left: 1.4px solid rgba(245, 245, 247,0);
-   border-bottom: 1.4px solid rgba(245, 245, 247,1);
- }
- 50% {
-   border-left: 1.4px solid rgba(245, 245, 247, 1);
-   border-right: 1.4px solid rgba(245, 245, 247,0);
-   border-top: 1.4px solid rgba(245, 245, 247, 0);
-   border-bottom: 1.4px solid rgba(245, 245, 247,1);
- }
- 75% {
-   border-bottom: 1.4px solid rgba(245, 245, 247, 1);
-   border-right: 1.4px solid rgba(245, 245, 247,0);
-   border-left: 1.4px solid rgba(245, 245, 247, 1);
-   border-top: 1.4px solid rgba(245, 245, 247, 1);
- }
- 100% {
-   border-right: 1.4px solid rgba(245, 245, 247, 1);
-   border-left: 1.4px solid rgba(245, 245, 247, 1);
-   border-top: 1.4px solid rgba(245, 245, 247, 1);
-   border-bottom: 1.4px solid rgba(245, 245, 247, 1);
-   transform: rotate(360deg);
- }
 `;
 
 const afterAnimation = keyframes`
@@ -332,60 +270,6 @@ const afterAnimation = keyframes`
     transform: scaleX(1);
     border-bottom: 1.4px solid rgb(33, 75, 255, 1);
  }
-`;
-
-const Spinner = styled.div`
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border-right: 1.4px solid rgba(245, 245, 247, 1);
-  border-left: 1.4px solid rgba(245, 245, 247, 1);
-  border-radius: 100%;
-  ${
-    "" /* animation: ${({ status }) =>
-    status === "pending"
-      ? pendingAnimation
-      : status === "resolved"
-      ? resolvedAnimation
-      : "none"}; */
-  }
-  animation-iteration-count: ${({ status }) =>
-    status === "resolved" ? 1 : "infinite"};
-  transition: all 0.3s ease-out;
-  &::before {
-    content: "";
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right:0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    position: absolute;
-    border-radius: 100%;
-    border-top: 1.4px solid red;
-    ${"" /* animation: ${afterAnimation} 0.8s ease infinite; */}
-  }
-  &::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right:0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    position: absolute;
-    border-radius: 100%;
-
-    border-bottom: 1.4px solid blue;
-    animation: ${afterAnimation} 0.8s ease infinite;
-    transform-origin: right center;
-  }
 `;
 
 const checkmark = keyframes`
@@ -410,6 +294,8 @@ const checkmark = keyframes`
 `;
 
 const Tick = styled.div`
+  height: 1em;
+  width: 0.34em;
   &::after {
     opacity: 1;
     height: 1em;
