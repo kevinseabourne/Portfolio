@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: kevinseabourne.com
+Token: 6c32a3dbbc39c410e1ca541966b2f23e3720ff48c75353a473b3751bff5526ad
