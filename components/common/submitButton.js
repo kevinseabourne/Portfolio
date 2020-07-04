@@ -1,57 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export const SubmitButton = ({ status, label, handleSubmit }) => {
-  const [tickExit, setTickExit] = useState(false);
-  const handleLoading = (status, label) => {
-    if (status === "pending" || status === "resolved") {
-      return (
-        <CSSTransition
-          in={status === "pending" || status === "resolved"}
-          classNames="loadingExitAnimation"
-          timeout={500}
-          unmountOnExit
-        >
-          <LoadingContainer viewBox="35 35 35 35">
-            {status === "resolved" && <Tick data-testid="sentCheckmarkIcon" />}
-            <Sv status={status} data-testid="loading-spinner">
-              <circle
-                id="path"
-                cx="17.5"
-                cy="17.5"
-                r="16.1"
-                fill="none"
-              ></circle>
-            </Sv>
-            {/* <Loading>
-            <Spinner status={status} data-testid="loading-spinner"></Spinner>
-            {status === "resolved" && <Tick />}
-          </Loading> */}
-          </LoadingContainer>
-        </CSSTransition>
-      );
-    } else {
-      return label;
-    }
-  };
-  const reset = status === "pending" || status === "resolved";
   return (
     <Button
       id={label}
       data-testid={label}
       onClick={(e) => handleSubmit(status, e)}
     >
-      <TransitionGroup component={null}>
-        {reset && (
+      <TransitionGroup>
+        {status === "idle" && (
           <CSSTransition
-            in={reset}
-            classNames="loadingExitAnimation"
+            in={status === "resolved"}
+            classNames="idleAnimation"
+            timeout={2000}
+          >
+            <Label>{label}</Label>
+          </CSSTransition>
+        )}
+
+        {status === "pending" && (
+          <CSSTransition
+            in={status === "pending"}
+            classNames="pendingExitAnimation"
             timeout={1500}
+            appear
             unmountOnExit
           >
-            <LoadingContainer status={status} viewBox="35 35 35 35">
-              <Tick id="tick" data-testid="sentCheckmarkIcon" />
+            <LoadingContainer viewBox="35 35 35 35">
               <Sv status={status} data-testid="loading-spinner">
                 <circle
                   id="path"
@@ -64,14 +41,56 @@ export const SubmitButton = ({ status, label, handleSubmit }) => {
             </LoadingContainer>
           </CSSTransition>
         )}
-      </TransitionGroup>
+        {status === "resolved" && (
+          <CSSTransition
+            in={status === "resolved"}
+            classNames="resolvedExitAnimation"
+            timeout={1500}
+            unmountOnExit
+          >
+            <LoadingContainer viewBox="35 35 35 35">
+              <Tick data-testid="sentCheckmarkIcon" />
 
-      {/* {handleLoading(status, label)} */}
+              <Sv status={status} data-testid="resolved-spinner">
+                <circle
+                  id="path"
+                  cx="17.5"
+                  cy="17.5"
+                  r="16.1"
+                  fill="none"
+                ></circle>
+              </Sv>
+            </LoadingContainer>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </Button>
   );
 };
 
 export default SubmitButton;
+
+const checkmark = keyframes`
+0% {
+  height: 0em;
+  width: 0em;
+  border-right: 2.5px solid rgba(245, 245, 247, 0);
+  border-top: 2.5px solid rgba(245, 245, 247, 0);
+}
+50% {
+    border-top: 2.5px solid rgba(245, 245, 247, 1);
+    border-right: 2.5px solid rgba(245, 245, 247, 0);
+    width: 0.34em;
+    height: 0em;
+
+}
+100% {
+  height: 1em;
+  width: 0.34em;
+  border-right: 2.5px solid rgba(245, 245, 247, 1);
+  border-top: 2.5px solid rgba(245, 245, 247, 1);
+}
+`;
 
 const Button = styled.button`
   min-width: 91.3px;
@@ -101,6 +120,33 @@ const Button = styled.button`
   }
   @media (max-width: 750px) {
     width: 100%;
+  }
+`;
+
+const Label = styled.label`
+  font-size: 1em;
+  color: #f5f5eb;
+  font-weight: 700;
+  margin: auto;
+  &.idleAnimation-enter {
+    transform: scale(0);
+    opacity: 0;
+  }
+  &.idleAnimation-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    transition-delay: 2s;
+  }
+  &.idleAnimation-exit {
+    transform: scale(1);
+    opacity: 1;
+  }
+  &.idleAnimation-exit-active {
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0s ease;
+    transition-delay: 0s;
   }
 `;
 
@@ -139,21 +185,7 @@ stroke-dasharray: 1, 200;
 }
 `;
 
-const pendingAnimation = css`
-  ${dash} 1.5s ease infinite;
-`;
-
-const resolvedAnimation = css`
-  ${dashOut} 1.5s ease forwards;
-`;
-
-const rotateAnimation = css`
-  ${rotate} 2s linear infinite;
-`;
-
 const Sv = styled.svg`
-  ${"" /* animation: ${({ status }) =>
-    status === "resolved" ? "none" : rotateAnimation}; */}
   height: 35px;
   width: 35px;
   position: absolute;
@@ -170,83 +202,16 @@ const Sv = styled.svg`
     fill: transparent;
     stroke: white;
     stroke-linecap: round;
-    ${"" /* stroke-dasharray: ${({ status }) => (status === "resolved" ? 1 : 283)}; */}
-    stroke-dasharray: 1;
+    stroke-dasharray: ${({ status }) => (status === "resolved" ? 1 : 283)};
     stroke-dashoffset: 280;
     stroke-width: 1.4px;
     transform-origin: 50% 50%;
-    ${"" /* animation: ${dashOut} 1.5s ease forwards;
-
-     ${
-       "" /* animation: ${({ status }) =>
-      status === "resolved" ? resolvedAnimation : pendingAnimation};  */}
-
-    ${"" /* animation-iteration-count: ${({ status }) =>
-      status === "resolved" ? 1 : "infinite"}; */}
   }
-`;
-
-const LoadingContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  &.loadingExitAnimation-enter {
-    opacity: 1;
-    stroke-width: 1.4px !important;
-  }
-  &.loadingExitAnimation-enter-active {
-    & #path {
-      animation: ${dashOut} 1.5s ease;
-    }
-    & #tick {
-      &::after {
-        animation: ${checkmark} 0.5s ease;
-      }
-    }
-  }
-  &.loadingExitAnimation-exit {
-  }
-  &.loadingExitAnimation-exit-active {
-    & #path {
-      animation: ${dashOut} 1.5s ease reverse !important;
-    }
-    & #tick {
-      &::after {
-        animation: ${checkmark} 0.5s easeout reverse;
-      }
-    }
-  }
-`;
-
-const checkmark = keyframes`
-0% {
-  height: 0;
-  width: 0em;
-  border-right: 2.5px solid rgba(245, 245, 247, 0);
-  border-top: 2.5px solid rgba(245, 245, 247, 0);
-}
-50% {
-    border-top: 2.5px solid rgba(245, 245, 247, 1);
-    width: 0.34em;
-    height: 0;
-
-}
-100% {
-  height: 1em;
-      width: 0.34em;
-  border-right: 2.5px solid rgba(245, 245, 247, 1);
-  border-top: 2.5px solid rgba(245, 245, 247, 1);
-}
 `;
 
 const Tick = styled.div`
   height: 1em;
   width: 0.34em;
-  background-color: red;
   &::after {
     opacity: 1;
     height: 1em;
@@ -260,29 +225,82 @@ const Tick = styled.div`
     margin: 0 auto;
     top: 27.6px;
     position: absolute;
-    ${"" /* animation: ${checkmark} 0.5s ease; */}
     transform: scaleX(-1) rotate(135deg);
     border-top-right-radius: 9%;
     border-top-left-radius: 1px;
     border-bottom-right-radius: 1px;
   }
+`;
 
-  &.loadingExitAnimation-enter {
-    &::after {
+const LoadingContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &.pendingExitAnimation-enter {
+  }
+  &.pendingExitAnimation-enter-active {
+    ${Sv} {
+      animation: ${rotate} 2s linear infinite;
+      & #path {
+        animation: ${dash} 1.5s ease infinite;
+      }
     }
   }
-  &.loadingExitAnimation-enter-active {
-    &::after {
-      animation: ${checkmark} 0.5s ease;
+  &.pendingExitAnimation-enter-done {
+    ${Sv} {
+      animation: ${rotate} 2s linear infinite;
+      & #path {
+        animation: ${dash} 1.5s ease infinite;
+      }
     }
   }
-  &.loadingExitAnimation-exit {
-    &::after {
+  &.pendingExitAnimation-exit {
+  }
+  &.pendingExitAnimation-exit-active {
+    ${Tick} {
+      &::after {
+        animation: ${checkmark} 0.5s ease reverse;
+        animation-delay: 1s;
+      }
+    }
+    ${Sv} {
+      & #path {
+        animation: ${dashOut} 1.5s ease reverse;
+      }
     }
   }
-  &.loadingExitAnimation-exit-active {
-    &::after {
-      animation: ${checkmark} 0.5s ease-out reverse;
+
+  &.resolvedExitAnimation-enter {
+  }
+  &.resolvedExitAnimation-enter-active {
+    ${Tick} {
+      &::after {
+        animation: ${checkmark} 0.5s ease;
+      }
+    }
+    ${Sv} {
+      & #path {
+        animation: ${dashOut} 1.5s ease;
+      }
+    }
+  }
+  &.resolvedExitAnimation-exit {
+  }
+  &.resolvedExitAnimation-exit-active {
+    ${Tick} {
+      &::after {
+        animation: ${checkmark} 0.5s reverse;
+        animation-delay: 1s;
+      }
+    }
+    ${Sv} {
+      & #path {
+        animation: ${dashOut} 1.5s reverse;
+      }
     }
   }
 `;
