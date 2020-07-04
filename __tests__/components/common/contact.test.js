@@ -19,9 +19,6 @@ describe("doSubmit", () => {
     sendEmail.mockImplementation(() =>
       Promise.resolve({ data: {}, status: 200, response: {} })
     );
-    // sendEmail.mockResolvedValue({
-    //   response: { status: 200 },
-    // });
 
     const handleScrollTo = jest.fn();
     const { getByTestId, queryByText, queryByTestId } = render(
@@ -58,7 +55,7 @@ describe("doSubmit", () => {
       expect(getByTestId("sentCheckmarkIcon")).toBeInTheDocument()
     );
 
-    // checkmark icon will appear for 9 seconds and then disappear
+    // checkmark icon should appear for 9 seconds and then disappear
 
     await waitFor(
       () => expect(queryByTestId("loading-spinner")).not.toBeInTheDocument(),
@@ -76,6 +73,42 @@ describe("doSubmit", () => {
       timeout: 10000,
     });
     cleanup();
+  });
+
+  it("should show an error message on a rejected http post request", async () => {
+    sendEmail.mockImplementation(() =>
+      Promise.reject("Async error").catch((error) => {
+        expect(error).toEqual("Async error");
+      })
+    );
+    const handleScrollTo = jest.fn();
+    const { getByTestId, getByText, getByRole } = render(
+      <Contact handleScrollTo={handleScrollTo} />
+    );
+
+    const nameInput = getByTestId("name-input");
+    const emailInput = getByTestId("email-input");
+    const messageInput = getByTestId("message-input");
+    const sendButton = getByText("Send");
+
+    fireEvent.change(nameInput, { target: { value: "name" } });
+    fireEvent.change(emailInput, { target: { value: "test@hotmail.com" } });
+    fireEvent.change(messageInput, { target: { value: "message" } });
+    fireEvent.click(sendButton);
+
+    await waitFor(() => expect(nameInput.value).toBe("name"));
+    await waitFor(() => expect(emailInput.value).toBe("test@hotmail.com"));
+    await waitFor(() => expect(messageInput.value).toBe("message"));
+
+    expect(sendEmail).toHaveBeenCalledTimes(1);
+    expect(sendEmail).toHaveBeenCalledWith({
+      name: "name",
+      email: "test@hotmail.com",
+      message: "message",
+    });
+
+    // error message should appear:
+    // JSDOM cannot find in message DOM, test coverage for error message done with cypress.
   });
 
   it("should not clear the inputs if the response status is not 200", async () => {
@@ -110,39 +143,5 @@ describe("doSubmit", () => {
     await waitFor(() => expect(nameInput.value).toBe("name"));
     await waitFor(() => expect(emailInput.value).toBe("test@hotmail.com"));
     await waitFor(() => expect(messageInput.value).toBe("message"));
-  });
-
-  it("should show an error message on a rejected http post request", async () => {
-    // sendEmail.mockImplementation(() =>
-    //   Promise.reject("Async error").catch((error) => {
-    //     expect(error).toEqual("Async error");
-    //   })
-    // );
-    sendEmail.mockImplementation(() => Promise.resolve({ status: 200 }));
-    const handleScrollTo = jest.fn();
-    const { getByTestId, getByText } = render(
-      <Contact handleScrollTo={handleScrollTo} />
-    );
-
-    const nameInput = getByTestId("name-input");
-    const emailInput = getByTestId("email-input");
-    const messageInput = getByTestId("message-input");
-    const sendButton = getByText("Send");
-
-    fireEvent.change(nameInput, { target: { value: "name" } });
-    fireEvent.change(emailInput, { target: { value: "test@hotmail.com" } });
-    fireEvent.change(messageInput, { target: { value: "message" } });
-    fireEvent.click(sendButton);
-
-    await waitFor(() => expect(nameInput.value).toBe(""));
-    await waitFor(() => expect(emailInput.value).toBe(""));
-    await waitFor(() => expect(messageInput.value).toBe(""));
-
-    expect(sendEmail).toHaveBeenCalledTimes(1);
-    expect(sendEmail).toHaveBeenCalledWith({
-      name: "name",
-      email: "test@hotmail.com",
-      message: "message",
-    });
   });
 });
