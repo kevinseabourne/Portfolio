@@ -13,7 +13,7 @@
     "@testing-library/cypress": "^6.0.0",
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^10.3.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cypress": "^4.8.0",
     "emailjs-com": "^2.4.1",
     "file-loader": "^6.0.0",
