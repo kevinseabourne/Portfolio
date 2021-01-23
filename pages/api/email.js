@@ -15,9 +15,9 @@ export async function sendEmail(data) {
   return emailjs
     .send(
       "outlook",
-      process.env.EMAILJS_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
       template_params,
-      process.env.EMAILJS_USER_ID
+      process.env.NEXT_PUBLIC_EMAILJS_USER_ID
     )
     .then((response) => {
       toast.success("Email Sent ✅", {
