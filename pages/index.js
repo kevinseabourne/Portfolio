@@ -48,18 +48,11 @@ const Home = ({ data }) => {
 };
 
 export async function getStaticProps() {
-  const response = await getAllProjects();
+  const { data } = await getAllProjects();
 
-  if (response) {
-    const { data } = response;
-    return {
-      props: { data },
-    };
-  } else {
-    return {
-      props: { data: [] },
-    };
-  }
+  return {
+    props: { data },
+  };
 }
 
 export default Home;

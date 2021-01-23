@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import AppContext from "../context/appContext";
 // import AOS from "aos";
