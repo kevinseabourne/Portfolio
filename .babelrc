@@ -1,4 +1,4 @@
 {
   "presets": ["next/babel"],
-  "plugins": [["styled-components", { "displayName": true, "preprocess": false, "ssr": true}], ["babel-plugin-dynamic-import-node"]]
+  "plugins": [["styled-components", { "displayName": true, "preprocess": false, "ssr": true}]]
 }
