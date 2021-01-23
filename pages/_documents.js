@@ -41,16 +41,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <script
-            data-host="https://microanalytics.io"
-            data-dnt="false"
-            src="https://microanalytics.io/js/script.js"
-            id="ZwSg9rf6GA"
-            async
-            defer
-          ></script>
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />
