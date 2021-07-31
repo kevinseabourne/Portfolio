@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 // import LazyLoad from "react-lazyload";
 import AppContext from "../context/appContext";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Skills = (props) => {
   // Cypress Testing Coverage //
@@ -16,12 +17,12 @@ const Skills = (props) => {
   });
 
   useEffect(() => {
-    // AOS.init({
-    //   disable: "mobile",
-    //   duration: 750,
-    //   offset: 0,
-    //   anchorPlacement: "bottom-bottom",
-    // });
+    AOS.init({
+      disable: "mobile",
+      duration: 750,
+      offset: 0,
+      anchorPlacement: "bottom-bottom",
+    });
 
     updateSize();
     window.addEventListener("resize", updateSize);
@@ -57,14 +58,6 @@ const Skills = (props) => {
         <ImagesContainer>
           {skills.map((skill) => (
             <Child key={skills.indexOf(skill)}>
-              {/* <LazyLoad
-                key={skills.indexOf(skill)}
-                once={true}
-                height={"100%"}
-                offset={500}
-                debounce={false}
-                placeholder={<Placeholder />}
-              > */}
               <ImageContainer>
                 <Image
                   src={skill.image}
@@ -75,9 +68,12 @@ const Skills = (props) => {
                   data-aos-delay={skills.indexOf(skill) * 100}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
+                  width={190}
+                  height={190}
+                  fill="responsive"
                 />
               </ImageContainer>
-              {/* </LazyLoad> */}
+
               <SubTitle
                 data-aos="fade-in"
                 data-aos-once="true"
@@ -200,14 +196,14 @@ const Placeholder = styled.div`
 
 const ImageContainer = styled.div``;
 
-const Image = styled.img`
-  margin: 0 auto;
-  width: 100%;
-  ${"" /* padding-top: 100%; */}
-  object-fit: contain;
-  object-position: center;
-  margin-bottom: 13.3px;
-`;
+// const Image = styled.img`
+//   margin: 0 auto;
+//   width: 100%;
+//   ${"" /* padding-top: 100%; */}
+//   object-fit: contain;
+//   object-position: center;
+//   margin-bottom: 13.3px;
+// `;
 
 const SubTitle = styled.label`
   text-align: center;

@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import AppContext from "../context/appContext";
 import ContactForm from "./contactForm";
 // import LazyLoad from "react-lazyload";

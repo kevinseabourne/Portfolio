@@ -19,14 +19,6 @@ export async function sendEmail(data) {
       process.env.NEXT_PUBLIC_EMAILJS_USER_ID
     )
     .then((response) => {
-      // toast.success("Email Sent ✅", {
-      //   position: "bottom-right",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      // });
       if (response && response.status === 200) {
         return response;
       }
@@ -45,20 +37,3 @@ export async function sendEmail(data) {
       }
     });
 }
-
-// export async function sendEmail(data) {
-//   const template_params = {
-//     to_name: "Kevin Seabourne",
-//     from_name: data.firstName,
-//     reply_to: data.Email,
-//     message_html: data.Message,
-//   };
-//
-//   const response = await http.post(process.env.EMAILJS_ENDPOINT, {
-//     service_id: "outlook",
-//     template_id: process.env.EMAILJS_TEMPLATEID,
-//     user_id: process.env.EMAILJS_USERID,
-//     template_params: template_params,
-//   });
-//   return response;
-// }

@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Banner = () => {
-  // useEffect(() => {
-  //   AOS.init({
-  //     disable: "mobile",
-  //     offset: 200,
-  //     duration: 750,
-  //   });
-  //   AOS.refreshHard();
-  //   return () => {
-  //     document.removeEventListener("aos:out", ({ detail }) => {});
-  //   };
-  // }, []);
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      offset: 200,
+      duration: 750,
+    });
+    AOS.refreshHard();
+    return () => {
+      document.removeEventListener("aos:out", ({ detail }) => {});
+    };
+  }, []);
 
   return (
     <Container data-testid="banner">

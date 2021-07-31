@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useContext } from "react";
 import AppContext from "../context/appContext";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = (props) => {
   const appContext = useContext(AppContext);
@@ -14,13 +14,13 @@ const About = (props) => {
   });
 
   useEffect(() => {
-    // AOS.init({
-    //   disable: "mobile",
-    //   offset: 0,
-    //   duration: 750,
-    //   once: true,
-    //   anchorPlacement: "bottom-bottom",
-    // });
+    AOS.init({
+      disable: "mobile",
+      offset: 0,
+      duration: 750,
+      once: true,
+      anchorPlacement: "bottom-bottom",
+    });
     updateSize();
 
     window.addEventListener("resize", updateSize);
@@ -192,7 +192,6 @@ const Line = styled.hr`
 
 const Text = styled.p`
   font-size: 1.6em;
-  font-weight: 200;
   @media (max-width: 1205px) {
     font-size: 1.4em;
   }

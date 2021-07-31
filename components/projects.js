@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import AppContext from "../context/appContext";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Projects = ({ data }) => {
   const context = useContext(AppContext);
@@ -11,12 +11,12 @@ const Projects = ({ data }) => {
   const [innerWidth, setInnerWidth] = useState(null);
 
   useEffect(() => {
-    // AOS.init({
-    //   disable: "mobile",
-    //   offset: 300,
-    //   duration: 750,
-    //   once: true,
-    // });
+    AOS.init({
+      disable: "mobile",
+      offset: 300,
+      duration: 750,
+      once: true,
+    });
     data.length === 0 &&
       toast.error("An error has occurred", {
         position: "bottom-right",

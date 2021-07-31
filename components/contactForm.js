@@ -2,8 +2,8 @@ import React from "react";
 import ReusableForm from "./common/reusableForm";
 import styled from "styled-components";
 import { sendEmail } from "../pages/api/email";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Joi from "joi-browser";
 
 class ContactForm extends ReusableForm {
