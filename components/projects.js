@@ -74,18 +74,18 @@ const Projects = ({ data }) => {
             data-aos-delay="250"
             data-aos-anchor-placement="bottom-bottom"
           >
-            <Link href={website.demo}>
+            <NewLink href={website.url} target="_blank">
               <DemoButton>Demo</DemoButton>
-            </Link>
+            </NewLink>
           </InnerButtonContainer>
           <InnerButtonContainer
             data-aos={`fade-${direction}`}
             data-aos-delay="300"
             data-aos-anchor-placement="bottom-bottom"
           >
-            <Link href={website.github}>
+            <NewLink href={website.github} target="_blank">
               <CodeButton>Code</CodeButton>
-            </Link>
+            </NewLink>
           </InnerButtonContainer>
         </ButtonsContainer>
       </TextContainer>
@@ -127,25 +127,26 @@ const Projects = ({ data }) => {
             <Project data-testid="project" key={data.indexOf(website)}>
               {handleRightText(website) &&
                 renderTextContainer(website, "right")}
-              <Link href={website.url}>
-                <Image
-                  data-aos-once="true"
-                  data-aos-anchor-placement="bottom-bottom"
-                  data-aos={
-                    data.indexOf(website) % 2 !== 0 ? "fade-left" : "fade-right"
-                  }
-                >
-                  <ImageLoader
-                    src={website.image}
-                    alt={website.title}
-                    maxWidth="660px"
-                    placeholderSize="56.75%"
-                    data-testid="image"
-                    borderRadius="12px"
-                    boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
-                  />
-                </Image>
-              </Link>
+              <Image
+                data-aos-once="true"
+                data-aos-anchor-placement="bottom-bottom"
+                data-aos={
+                  data.indexOf(website) % 2 !== 0 ? "fade-left" : "fade-right"
+                }
+                href={website.url}
+                target="_blank"
+              >
+                <ImageLoader
+                  src={website.image}
+                  alt={website.title}
+                  maxWidth="660px"
+                  hover={true}
+                  placeholderSize="56.75%"
+                  data-testid="image"
+                  borderRadius="12px"
+                  boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
+                />
+              </Image>
               {handleLeftText(website) && renderTextContainer(website, "left")}
             </Project>
           ))}
@@ -202,6 +203,12 @@ const Title = styled.h1`
   }
 `;
 
+const NewLink = styled.a`
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+`;
+
 const Line = styled.hr`
   background-image: linear-gradient(
     115deg,
@@ -246,24 +253,11 @@ const Project = styled.div`
   }
 `;
 
-const Image = styled.div`
-  width: 47%;
-  padding-bottom: 30%;
-  overflow: hidden;
-  height: 0;
-  max-height: 800px;
-  ${"" /* background-color: #08aeea; */}
-  border-radius: 12px;
-  ${"" /* background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%); */}
-  ${"" /* box-shadow: 0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3); */}
+const Image = styled.a`
+  max-width: 660px;
+  width: 100%;
   &:hover {
     cursor: pointer;
-  }
-  @media (max-width: 1408px) {
-    margin: 0 auto;
-    width: 100%;
-    padding-bottom: 60%;
-    margin-bottom: 30px;
   }
 `;
 
@@ -360,6 +354,7 @@ const DemoButton = styled.button`
   margin-right: 15px;
   border: none;
   color: #f5f5eb;
+  outline: none;
   font-weight: 700;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   background-color: #08aeea;
@@ -387,6 +382,7 @@ const CodeButton = styled.button`
   padding: 14px 24px;
   border-radius: 40px;
   border: none;
+  outline: none;
   color: #f5f5eb;
   font-weight: 700;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

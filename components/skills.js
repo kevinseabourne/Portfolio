@@ -69,7 +69,7 @@ const Skills = (props) => {
                   data-testid={skill.title}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
-                  width={190}
+                  width="180px"
                 />
               </ImageContainer>
 
@@ -195,21 +195,12 @@ const Placeholder = styled.div`
 
 const ImageContainer = styled.div``;
 
-// const Image = styled.img`
-//   margin: 0 auto;
-//   width: 100%;
-//   ${"" /* padding-top: 100%; */}
-//   object-fit: contain;
-//   object-position: center;
-//   margin-bottom: 13.3px;
-// `;
-
 const SubTitle = styled.label`
   text-align: center;
   font-size: 2.2rem;
   letter-spacing: 2;
   text-transform: uppercase;
-  margin-top: auto;
+  margin-top: 21px;
   margin-bottom: 0.5rem;
   @media (max-width: 1200px) {
     font-size: 2rem;
