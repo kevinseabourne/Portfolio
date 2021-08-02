@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-// import LazyLoad from "react-lazyload";
+import ImageLoader from "./common/imageLoader";
 import AppContext from "../context/appContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -58,19 +58,18 @@ const Skills = (props) => {
         <ImagesContainer>
           {skills.map((skill) => (
             <Child key={skills.indexOf(skill)}>
-              <ImageContainer>
-                <Image
+              <ImageContainer
+                data-aos="fade-in"
+                data-aos-once="true"
+                data-aos-anchor-placement="bottom-bottom"
+                data-aos-delay={skills.indexOf(skill) * 100}
+              >
+                <ImageLoader
                   src={skill.image}
                   data-testid={skill.title}
-                  data-aos="fade-in"
-                  data-aos-once="true"
-                  data-aos-anchor-placement="bottom-bottom"
-                  data-aos-delay={skills.indexOf(skill) * 100}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
                   width={190}
-                  height={190}
-                  fill="responsive"
                 />
               </ImageContainer>
 
