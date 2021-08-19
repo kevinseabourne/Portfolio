@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import Link from "next/link";
 import ImageLoader from "./common/imageLoader";
 import AppContext from "../context/appContext";
 import styled from "styled-components";
