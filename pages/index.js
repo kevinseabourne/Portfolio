@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getAllProjects } from "./api/projects";
 import Head from "next/head";
 import styled from "styled-components";
@@ -10,13 +10,18 @@ import Projects from "../components/projects";
 import Contact from "../components/contact";
 
 const Home = ({ data }) => {
-  const dataArray = [];
-  if (data) {
-    const values = Object.values(data);
-    for (const value of values) {
-      dataArray.push(value);
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    if (data) {
+      const dataArray = [];
+      const values = Object.values(data);
+      for (const value of values) {
+        dataArray.push(value);
+      }
+      setProjects(dataArray);
     }
-  }
+  }, [data]);
+
   return (
     <React.Fragment>
       <Head>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import logger from "./logger";
-import { toast } from "react-toastify";
 
 /* istanbul ignore file */
 // - tested in Cypress - //
