@@ -50,7 +50,7 @@ const Home = ({ data }) => {
         <Banner />
         <About />
         <Skills />
-        <Projects data={dataArray} />
+        <Projects data={projects} />
         <Contact />
       </Container>
     </React.Fragment>
