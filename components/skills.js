@@ -69,7 +69,7 @@ const Skills = (props) => {
                   data-testid={skill.title}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
-                  width="180px"
+                  placeholderSize="95%"
                 />
               </ImageContainer>
 
@@ -114,7 +114,6 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 0px 30px;
-  /* margin-top: 320px; */
   @media (max-width: 784px) {
     height: 100%;
     margin-bottom: 3em;
@@ -170,10 +169,12 @@ const ImagesContainer = styled.div`
   grid-gap: 200px 12%;
   @media (max-width: 1060px) {
     grip-gap: 76px 0%;
+    padding-bottom: 3rem;
   }
   @media (max-width: 638px) {
+    padding-bottom: 0px;
     grid-gap: 67px 12%;
-    grid-template-columns: repeat(2, minmax(10px, 140px));
+    grid-template-columns: repeat(2, minmax(10px, 180px));
   }
 `;
 
@@ -193,7 +194,9 @@ const Placeholder = styled.div`
   margin-bottom: 13.3px;
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  width: 100%;
+`;
 
 const SubTitle = styled.label`
   text-align: center;
