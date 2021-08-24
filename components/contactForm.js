@@ -79,7 +79,7 @@ class ContactForm extends ReusableForm {
       this.setState({ status: "resolved" });
       this.timeout.current = setTimeout(
         () => this.setState({ status: "idle" }),
-        2000
+        3000
       );
     }
   };
