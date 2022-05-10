@@ -17,6 +17,7 @@ class ContactForm extends ReusableForm {
     this.messageRef = React.createRef();
     this.timeout = React.createRef();
   }
+
   state = {
     data: {
       name: "",
