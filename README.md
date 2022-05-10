@@ -1,19 +1,23 @@
 # Portfolio
 
-This portfolio website is built using
+This portfolio displays all project I have designed and or developed.
 
-Stack
+## Stack
+
 • Next.js
+• Javascript
 • Styled Components
 • GraphCMS
 • GraphQL
+• React Hook Form
 • Jest
 • React Testing Library
 • Cypress
 
-Features
+## Stack
+
 • Http Requests
 • Dynamic Routes
 • Scroll To Functionality
-• Responsive
-• Accessibility
+• Contact Form
+• Testing
