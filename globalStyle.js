@@ -15,9 +15,6 @@ body {
   scroll-snap-type: y mandatory;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 code {
   font-family: "Source Sans Pro", source-code-pro, Menlo, Monaco, Consolas,

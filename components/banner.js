@@ -69,7 +69,7 @@ const TextContainer = styled.div`
 const JobTitle1 = styled.h1`
   font-size: 5rem;
   font-weight: 500;
-  @media (max-width: 1205px) {
+  @media (max-width: 1405px) {
     font-size: 4.3rem;
   }
   @media (max-width: 578px) {
@@ -80,7 +80,7 @@ const JobTitle1 = styled.h1`
 const JobTitle2 = styled.h1`
   font-size: 5rem;
   font-weight: 500;
-  @media (max-width: 1205px) {
+  @media (max-width: 1405px) {
     font-size: 4.3rem;
   }
   @media (max-width: 578px) {
@@ -92,6 +92,9 @@ const Name = styled.h2`
   font-size: 2.6rem;
   font-weight: 400;
   margin: 12px 0px;
+  @media (max-width: 1405px) {
+    font-size: 2.3rem;
+  }
   @media (max-width: 1205px) {
     font-size: 1.9rem;
   }

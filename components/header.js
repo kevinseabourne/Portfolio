@@ -5,7 +5,7 @@ import AppContext from "../context/appContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Header = (props) => {
+const Header = () => {
   // Cypress Testing Coverage //
   /* istanbul ignore file */
   const [showSkipLink, setShowSkipLink] = useState(false);
@@ -15,6 +15,11 @@ const Header = (props) => {
   const appContext = useContext(AppContext);
   const [burgerMenu, setBurgerMenu] = useState(false);
   useEffect(() => {
+    AOS.init({
+      offset: 0,
+      // duration: 750,
+      // once: true,
+    });
     window.addEventListener("mousedown", handleClickOutside);
     return () => {
       window.removeEventListener("mousedown", handleClickOutside);
@@ -38,6 +43,7 @@ const Header = (props) => {
       window.scrollTo({
         top: component.position,
         left: 0,
+        behavior: "smooth",
       });
       setBurgerMenu(false);
     }
@@ -138,7 +144,7 @@ const SkipHeaderLink = styled.a`
   padding: 16px 24px;
   position: absolute;
   top: 92px;
-  left: 62px;
+  left: ${({ showSkipLink }) => (showSkipLink ? "62px" : "-400px")};
   font-size: 1rem;
   border-radius: 9px;
   background-color: white;

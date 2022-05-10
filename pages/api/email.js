@@ -23,17 +23,5 @@ export async function sendEmail(data) {
         return response;
       }
     })
-    .catch((error) => {
-      if (error && error.status >= 400 && error.status < 500) {
-        toast.error("An unexpected error has occurred 😔", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        logger.log(error);
-      }
-    });
+    .catch(() => {});
 }

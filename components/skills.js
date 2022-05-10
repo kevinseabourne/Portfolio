@@ -44,7 +44,7 @@ const Skills = (props) => {
     { image: "/images/css3-original.svg", title: "css3" },
     { image: "/images/javascript-original.svg", title: "javascript" },
     { image: "/images/styled-components-logo.png", title: "sc" },
-    { image: "/images/react-original.svg", title: "react" },
+    { image: "/images/nextjs-logotype-dark.svg", title: "next.js" },
     { image: "/images/github-original.svg", title: "github" },
   ];
 
@@ -107,7 +107,7 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1590px;
+  max-width: 1450px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -131,7 +131,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 52px;
   text-align: center;
   @media (max-width: 578px) {
     font-size: 3.2em;
@@ -167,7 +167,7 @@ const ImagesContainer = styled.div`
   grid-auto-flow: row;
   grid-column-end: auto;
   grid-gap: 200px 12%;
-  @media (max-width: 1060px) {
+  @media (max-width: 1260px) {
     grip-gap: 76px 0%;
     padding-bottom: 3rem;
   }
@@ -186,21 +186,13 @@ const Child = styled.div`
   align-items: center;
 `;
 
-const Placeholder = styled.div`
-  min-height: 40px;
-  height: 200px;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 13.3px;
-`;
-
 const ImageContainer = styled.div`
   width: 100%;
 `;
 
 const SubTitle = styled.label`
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 32px;
   letter-spacing: 2;
   text-transform: uppercase;
   margin-top: 21px;

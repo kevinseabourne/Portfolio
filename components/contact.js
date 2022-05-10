@@ -5,7 +5,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import AppContext from "../context/appContext";
 import ContactForm from "./contactForm";
-// import LazyLoad from "react-lazyload";
 const githubIcon = "/images/github-original.svg";
 const linkedInIcon = "/images/linkedin-original.svg";
 
@@ -26,7 +25,7 @@ export default function Contact() {
 
     handleScrollTo({
       name: "Contact",
-      position: ref.current.offsetTop,
+      position: ref.current.offsetTop + 900,
     });
   };
 
@@ -39,10 +38,8 @@ export default function Contact() {
         </TitleContainer>
         <ContactContainer>
           <GetInTouch data-aos="fade" data-aos-delay="200" data-aos-once="true">
-            <GetInTouchTitle>Get In Touch</GetInTouchTitle>
-            <Message>
-              Send me a message if you are interested in hiring me.
-            </Message>
+            <GetInTouchTitle>Let's Build Something Together</GetInTouchTitle>
+            <Message>Feel free to reach out !</Message>
           </GetInTouch>
           <ContactForm />
           <Links
@@ -51,19 +48,16 @@ export default function Contact() {
             data-aos-once="true"
             data-aos-anchor-placement="bottom-bottom"
           >
-            {/* <LazyLoad once={true} height={70} offset={100}> */}
             <Link href="https://github.com/kevinseabourne" target="_blank">
               <Github src={githubIcon} />
             </Link>
-            {/* </LazyLoad> */}
-            {/* <LazyLoad once={true} height={70} offset={100}> */}
+
             <Link
               href="https://www.linkedin.com/in/kevin-seabourne-53833a19a/"
               target="_blank"
             >
               <LinkedIn target="_blank" src={linkedInIcon} />
             </Link>
-            {/* </LazyLoad> */}
           </Links>
         </ContactContainer>
         <Copyright
@@ -84,7 +78,7 @@ Contact.propTypes = {
 };
 
 const Container = styled.section`
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
   padding-bottom: 70px;
   background-color: #08aeea;
@@ -123,7 +117,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 52px;
   text-align: center;
   @media (max-width: 623px) {
     font-size: 3.12em;
@@ -181,14 +175,19 @@ const GetInTouch = styled.div`
 
 const GetInTouchTitle = styled.h2`
   margin-top: 112px;
-  font-size: 2rem;
+  font-size: 30px;
+  margin-bottom: 10px;
   @media (max-width: 1533px) {
     margin-top: 0px;
   }
 `;
 
 const Message = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.3em;
+  max-width: 300px;
+  margin-top: 0px;
+  white-space: pre-line;
+  line-height: 40px;
 `;
 
 const Links = styled.div`

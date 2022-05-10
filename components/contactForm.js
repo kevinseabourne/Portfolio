@@ -5,6 +5,8 @@ import { sendEmail } from "../pages/api/email";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Joi from "joi-browser";
+import logger from ".././pages/api/logger";
+import { toast } from "react-toastify";
 
 class ContactForm extends ReusableForm {
   constructor(props) {
@@ -81,6 +83,16 @@ class ContactForm extends ReusableForm {
         () => this.setState({ status: "idle" }),
         3000
       );
+    } else {
+      toast.error("An unexpected error has occurred 😔", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      logger.log(error);
     }
   };
 
@@ -90,7 +102,6 @@ class ContactForm extends ReusableForm {
     for (let value in data) {
       updatedData[value] = "";
     }
-    // if (data.hasOwnProperty(value)) {
     this.setState({ data: updatedData });
   };
 

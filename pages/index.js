@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllProjects } from "./api/projects";
+import { getAllProjects, getAllGraphQLProjects } from "./api/projects";
 import Head from "next/head";
 import styled from "styled-components";
 import Header from "../components/header";
@@ -9,18 +9,12 @@ import Skills from "../components/skills";
 import Projects from "../components/projects";
 import Contact from "../components/contact";
 
-const Home = ({ data }) => {
+const Home = ({ allProjects }) => {
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
-    if (data) {
-      const dataArray = [];
-      const values = Object.values(data);
-      for (const value of values) {
-        dataArray.push(value);
-      }
-      setProjects(dataArray);
-    }
-  }, [data]);
+    setProjects(allProjects);
+  }, []);
 
   return (
     <React.Fragment>
@@ -58,10 +52,10 @@ const Home = ({ data }) => {
 };
 
 export async function getStaticProps() {
-  const response = await getAllProjects();
-  if (response) {
-    const { data } = response;
-    return { props: { data } };
+  const data = await getAllProjects();
+  if (data) {
+    const { projects } = data;
+    return { props: { allProjects: projects } };
   } else {
     return { props: { data: null } };
   }

@@ -93,7 +93,7 @@ const Container = styled.section`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1450px;
@@ -160,7 +160,7 @@ const TextContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 4em;
+  font-size: 52px;
   @media (max-width: 1205px) {
     font-size: 3.2em;
   }
@@ -181,7 +181,7 @@ const Line = styled.hr`
   border: none;
   content: "";
   height: 4px;
-  margin-bottom: 0.2rem;
+  margin-bottom: 20px;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
@@ -191,7 +191,12 @@ const Line = styled.hr`
 `;
 
 const Text = styled.p`
-  font-size: 1.6em;
+  ${"" /* font-size: 1.6em; */}
+  font-size: 1.3em;
+  max-width: 800px;
+  margin-top: 0px;
+  white-space: pre-line;
+  line-height: 40px;
   @media (max-width: 1205px) {
     font-size: 1.4em;
   }
