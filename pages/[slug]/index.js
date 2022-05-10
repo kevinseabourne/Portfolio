@@ -21,7 +21,6 @@ const ProjectPage = ({ project, otherProjects }) => {
     });
   }, []);
 
-  console.log(project.title);
   return (
     <Container>
       <Wrapper>
@@ -141,7 +140,11 @@ const ProjectPage = ({ project, otherProjects }) => {
             </ImageContainer>
           </LeftImage>
           <RightImageContainer>
-            <ImageContainer data-aos="fade-up">
+            <ImageContainer
+              data-aos="fade-up"
+              marginBottom="600px"
+              responsiveMargin="309px"
+            >
               <ImageLoader
                 maxWidth="100%"
                 placeholderSize={
@@ -153,7 +156,6 @@ const ProjectPage = ({ project, otherProjects }) => {
                 src={project.galleryImages[2].url}
                 borderRadius="12px"
                 backgroundColor="#F9F9F9"
-                marginBottom="600px"
                 opacity={0}
                 boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
                 priority={true}
@@ -290,7 +292,13 @@ const IconContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  margin-bottom: ${({ margin }) => (margin ? margin : "0px")};
+  @media (max-width: 900px) {
+    margin-bottom: ${({ responsiveMargin }) =>
+      responsiveMargin ? responsiveMargin : "0px"};
+  }
+`;
 
 const TitleContainer = styled.div`
   display: flex;
@@ -331,7 +339,7 @@ const TitleLine = styled.hr`
   border: none;
   content: "";
   height: 4px;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
   margin-left: 0;
   width: 100%;
@@ -362,6 +370,9 @@ const TitleLine = styled.hr`
     -moz-animation-play-state: paused;
     -o-animation-play-state: paused;
     animation-play-state: paused;
+  }
+  @media (max-width: 900px) {
+    margin-bottom: 0.8rem;
   }
 `;
 
@@ -395,6 +406,13 @@ const InfoRow = styled.div`
   margin-bottom: 200px;
   max-width: 1300px;
   width: 100%;
+  @media (max-width: 658px) {
+    flex-wrap: wrap;
+    margin-bottom: 120px;
+  }
+  @media (max-width: 577px) {
+    margin-top: 10px;
+  }
 `;
 
 const InfoColumn = styled.div`
@@ -402,6 +420,38 @@ const InfoColumn = styled.div`
   flex-direction: column;
   text-align: left;
   width: 260px;
+  padding-right: 40px;
+  @media (max-width: 900px) {
+    &:nth-child(2) {
+      padding-right: 7px;
+    }
+  }
+  @media (max-width: 658px) {
+    padding-right: 0px;
+    &:nth-child(2) {
+      padding-right: 0px;
+    }
+    &:nth-child(3) {
+      padding-top: 100px;
+    }
+    &:nth-child(4) {
+      padding-top: 100px;
+    }
+  }
+  @media (max-width: 577px) {
+    &:nth-child(1) {
+      padding-top: 80px;
+    }
+    &:nth-child(2) {
+      padding-top: 80px;
+    }
+    &:nth-child(3) {
+      padding-top: 80px;
+    }
+    &:nth-child(4) {
+      padding-top: 80px;
+    }
+  }
 `;
 
 const Label = styled.label`
@@ -412,6 +462,9 @@ const Label = styled.label`
 const SubTitle = styled.label`
   font-size: 48px;
   margin-bottom: 8px;
+  @media (max-width: 600px) {
+    font-size: 40px;
+  }
 `;
 
 const Stack = styled.span`
@@ -468,9 +521,8 @@ const LinkText = styled.button`
   }
   @media (max-width: 515px) {
     display: block;
-    border-top: 1px solid #f5f5eb;
     &:last-child {
-      border-bottom: 1px solid #f5f5eb;
+      border-bottom: 2.2px solid #f5f5eb;
     }
     &:hover&::before {
       opacity: 0;
@@ -484,11 +536,18 @@ const ImageGalleryContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftImage = styled.div`
   width: calc(50% - 20px);
   border-radius: 12px;
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-bottom: 105px;
+  }
 `;
 
 const RightImageContainer = styled.div`
@@ -496,6 +555,11 @@ const RightImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    width: 100%;
+    order: 1;
+  }
 `;
 
 const StackExplainationContainer = styled.div`
@@ -508,6 +572,9 @@ const StackExplainationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @media (max-width: 600px) {
+    margin-top: 150px;
+  }
 `;
 
 const ProblemsContainer = styled.div`
