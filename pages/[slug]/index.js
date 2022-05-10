@@ -140,11 +140,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             </ImageContainer>
           </LeftImage>
           <RightImageContainer>
-            <ImageContainer
-              data-aos="fade-up"
-              marginBottom="600px"
-              responsiveMargin="309px"
-            >
+            <ImageContainer data-aos="fade-up">
               <ImageLoader
                 maxWidth="100%"
                 placeholderSize={
@@ -157,6 +153,7 @@ const ProjectPage = ({ project, otherProjects }) => {
                 borderRadius="12px"
                 backgroundColor="#F9F9F9"
                 opacity={0}
+                marginBottom="600px"
                 boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
                 priority={true}
                 loadingSkeleton={true}
@@ -292,13 +289,7 @@ const IconContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
-  margin-bottom: ${({ margin }) => (margin ? margin : "0px")};
-  @media (max-width: 900px) {
-    margin-bottom: ${({ responsiveMargin }) =>
-      responsiveMargin ? responsiveMargin : "0px"};
-  }
-`;
+const ImageContainer = styled.div``;
 
 const TitleContainer = styled.div`
   display: flex;
@@ -586,6 +577,8 @@ const ProblemsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @media (max-width: 900px) {
+  margin-top: -400px;
 `;
 
 const LearnedContainer = styled.div`
