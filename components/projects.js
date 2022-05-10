@@ -61,7 +61,7 @@ const Projects = ({ data, otherProjects }) => {
         </Description>
         <SkillsContainer>
           {website.shortStack.map((tech, index) => (
-            <SkillsInnerContainer>
+            <SkillsInnerContainer key={index}>
               <Skills
                 key={tech}
                 data-aos={`fade-${direction}`}
@@ -155,6 +155,8 @@ const Projects = ({ data, otherProjects }) => {
                   placeholderSize="56.75%"
                   data-testid="image"
                   borderRadius="12px"
+                  priority={true}
+                  loadingSkeleton={true}
                   boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
                 />
               </Image>
@@ -365,12 +367,11 @@ const Skills = styled.label`
 
 const Gap = styled.span`
   text-align: center;
-  display: none;
   font-size: 1.3em;
   padding: 0px 14px;
-  transform: rotate(90deg);
+
   @media (max-width: 450px) {
-    display: flex;
+    transform: rotate(90deg) !important;
   }
 `;
 

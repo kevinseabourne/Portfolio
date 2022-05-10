@@ -17,9 +17,8 @@ const Header = () => {
   useEffect(() => {
     AOS.init({
       offset: 0,
-      // duration: 750,
-      // once: true,
     });
+
     window.addEventListener("mousedown", handleClickOutside);
     return () => {
       window.removeEventListener("mousedown", handleClickOutside);
@@ -286,6 +285,9 @@ const BurgerContainer = styled.button`
   padding: 20px;
   margin-right: 20px;
   z-index: 4;
+  &:active {
+    outline: none;
+  }
 `;
 
 const BurgerMenu = styled.div`
