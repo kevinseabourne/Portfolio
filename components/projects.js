@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import Link from "next/link";
 import ImageLoader from "./common/imageLoader";
 import AppContext from "../context/appContext";
 import styled from "styled-components";
@@ -6,15 +7,14 @@ import { toast } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Projects = ({ data }) => {
+const Projects = ({ data, otherProjects }) => {
   const context = useContext(AppContext);
   const ref = useRef(null);
   const [innerWidth, setInnerWidth] = useState(null);
 
   useEffect(() => {
     AOS.init({
-      disable: "mobile",
-      offset: 300,
+      offset: 100,
       duration: 750,
       once: true,
     });
@@ -56,35 +56,47 @@ const Projects = ({ data }) => {
           data-testid={`${website.title} description`}
           data-aos={`fade-${direction}`}
           data-aos-delay="150"
-          data-aos-anchor-placement="bottom-bottom"
         >
-          {website.description}
+          {website.shortDescription}
         </Description>
-        <Skills
-          data-aos={`fade-${direction}`}
-          data-aos-delay="200"
-          data-aos-anchor-placement="bottom-bottom"
-        >
-          {`${website.skills}`}
-        </Skills>
+        <SkillsContainer>
+          {website.shortStack.map((tech, index) => (
+            <SkillsInnerContainer>
+              <Skills
+                key={tech}
+                data-aos={`fade-${direction}`}
+                data-aos-delay="200"
+              >
+                {tech}
+              </Skills>
+              {website.shortStack.length - 1 !== index && (
+                <Gap data-aos={`fade-${direction}`} data-aos-delay="200">
+                  |
+                </Gap>
+              )}
+            </SkillsInnerContainer>
+          ))}
+        </SkillsContainer>
         <ButtonsContainer>
           <InnerButtonContainer
             data-aos={`fade-${direction}`}
             data-aos-delay="250"
-            data-aos-anchor-placement="bottom-bottom"
           >
-            <NewLink href={website.url} target="_blank">
+            <NewLink href={website.websiteLink} target="_blank">
               <DemoButton>Demo</DemoButton>
             </NewLink>
           </InnerButtonContainer>
           <InnerButtonContainer
             data-aos={`fade-${direction}`}
             data-aos-delay="300"
-            data-aos-anchor-placement="bottom-bottom"
           >
-            <NewLink href={website.github} target="_blank">
-              <CodeButton>Code</CodeButton>
-            </NewLink>
+            <Link
+              href={`/${website.title
+                .toLowerCase()
+                .replace(/[{L}!#$'"@`#*+)(:;{}\s]/g, "-")}`}
+            >
+              <CodeButton>More Info</CodeButton>
+            </Link>
           </InnerButtonContainer>
         </ButtonsContainer>
       </TextContainer>
@@ -118,28 +130,28 @@ const Projects = ({ data }) => {
     <Container ref={ref}>
       <Wrapper>
         <TitleContainer>
-          <Title>Projects</Title>
+          <Title>{otherProjects ? "Other Projects" : "Projects"}</Title>
           <Line />
         </TitleContainer>
         <ProjectsContainer>
-          {data.map((website) => (
-            <Project data-testid="project" key={data.indexOf(website)}>
+          {data.map((website, index) => (
+            <Project data-testid="project" key={index}>
               {handleRightText(website) &&
                 renderTextContainer(website, "right")}
               <Image
                 data-aos-once="true"
-                data-aos-anchor-placement="bottom-bottom"
                 data-aos={
                   data.indexOf(website) % 2 !== 0 ? "fade-left" : "fade-right"
                 }
-                href={website.url}
+                href={website.websiteLink}
                 target="_blank"
               >
                 <ImageLoader
-                  src={website.image}
+                  src={website.displayImage.url}
                   alt={website.title}
                   maxWidth="660px"
                   hover={true}
+                  backgroundColor={true}
                   placeholderSize="56.75%"
                   data-testid="image"
                   borderRadius="12px"
@@ -174,7 +186,8 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1590px;
+  ${"" /* max-width: 1590px; */}
+  max-width: 1450px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
@@ -195,7 +208,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 52px;
   text-align: center;
   @media (max-width: 578px) {
     font-size: 3.2em;
@@ -255,6 +268,8 @@ const Project = styled.div`
 const Image = styled.a`
   max-width: 660px;
   width: 100%;
+  display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
   }
@@ -281,19 +296,24 @@ const TextContainer = styled.div`
 `;
 
 const ProjectTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 38px;
+  margin-bottom: 10px;
   @media (max-width: 684px) {
     font-size: 2.3rem;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1.5em;
-  font-weight: 200;
-  @media (max-width: 1204px) {
-    font-size: 1.3em;
-  }
+  font-size: 1.3em;
+  max-width: 800px;
+  margin-top: 0px;
+  white-space: pre-line;
+  line-height: 40px;
   @media (max-width: 1408px) {
+    font-size: 1.3em;
+    align-self: center;
+  }
+  @media (max-width: 1204px) {
     font-size: 1.3em;
   }
   @media (max-width: 584px) {
@@ -301,10 +321,34 @@ const Description = styled.p`
   }
 `;
 
+const SkillsContainer = styled.div`
+  display: flex;
+  @media (max-width: 1408px) {
+    justify-content: center;
+  }
+  @media (max-width: 450px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+const SkillsInnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  @media (max-width: 1408px) {
+    text-align: center;
+  }
+  @media (max-width: 450px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
 const Skills = styled.label`
   font-family: inherit;
-  font-size: 1.3em;
-  font-weight: 200;
+  font-size: 19px;
   @media (max-width: 1204px) {
     font-size: 1.3em;
   }
@@ -316,6 +360,17 @@ const Skills = styled.label`
   }
   @media (max-width: 584px) {
     font-size: 1.1em;
+  }
+`;
+
+const Gap = styled.span`
+  text-align: center;
+  display: none;
+  font-size: 1.3em;
+  padding: 0px 14px;
+  transform: rotate(90deg);
+  @media (max-width: 450px) {
+    display: flex;
   }
 `;
 
