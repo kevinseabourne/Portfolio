@@ -1,6 +1,6 @@
 # Portfolio
 
-This portfolio displays all project I have designed and or developed.
+This portfolio displays all projects I have designed and or developed.
 
 ## Stack
 
