@@ -14,7 +14,7 @@ This portfolio displays all projects I have designed and or developed.
 • React Testing Library
 • Cypress
 
-## Stack
+## Features
 
 • Http Requests
 • Dynamic Routes
