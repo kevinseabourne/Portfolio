@@ -78,21 +78,21 @@ const ProjectPage = ({ project, otherProjects }) => {
             <Label data-aos="fade-up" data-aos-delay="200">
               Code
             </Label>
-            <Link href={project.githubLink} target="_blank">
+            <NewLink href={project.githubLink} target="_blank">
               <LinkText data-aos="fade-up" data-aos-delay="300">
                 Repository
               </LinkText>
-            </Link>
+            </NewLink>
           </InfoColumn>
           <InfoColumn>
             <Label data-aos="fade-up" data-aos-delay="300">
               Live
             </Label>
-            <Link href={project.websiteLink} target="_blank">
+            <NewLink href={project.websiteLink} target="_blank">
               <LinkText data-aos="fade-up" data-aos-delay="400">
                 View Site
               </LinkText>
-            </Link>
+            </NewLink>
           </InfoColumn>
         </InfoRow>
         <ImageContainer data-aos="fade-up">
@@ -464,6 +464,13 @@ const Stack = styled.span`
   padding: 5px 0px;
   &:hover {
     cursor: default;
+  }
+`;
+
+const NewLink = styled.a`
+  text-decoration: none;
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 `;
 

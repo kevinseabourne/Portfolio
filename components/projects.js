@@ -218,6 +218,7 @@ const Title = styled.h1`
 `;
 
 const NewLink = styled.a`
+  text-decoration: none;
   &:focus:not(:focus-visible) {
     outline: none;
   }
