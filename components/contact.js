@@ -13,12 +13,18 @@ export default function Contact() {
   const ref = useRef(null);
 
   useEffect(() => {
-    updateSize();
     window.addEventListener("resize", updateSize);
     return () => {
       window.removeEventListener("resize", updateSize);
     };
   }, []);
+
+  useEffect(() => {
+    // due to the contact component being rendered before the projects component.
+    // the first render is given the incorrect position value, by checking whenever the ref.current changes
+    // I can update the state with the correct position of the contact form
+    ref.current.offsetTop && updateSize();
+  }, [ref.current]);
 
   const updateSize = () => {
     const { handleScrollTo } = context;
@@ -48,15 +54,25 @@ export default function Contact() {
             data-aos-once="true"
             data-aos-anchor-placement="bottom-bottom"
           >
-            <Link href="https://github.com/kevinseabourne" target="_blank">
-              <Github src={githubIcon} />
+            <Link
+              href="https://github.com/kevinseabourne"
+              target="_blank"
+              aria-labelledby="github"
+            >
+              <Github src={githubIcon} alt="github" id="github" />
             </Link>
 
             <Link
               href="https://www.linkedin.com/in/kevin-seabourne-53833a19a/"
               target="_blank"
+              aria-labelledby="linked In"
             >
-              <LinkedIn target="_blank" src={linkedInIcon} />
+              <LinkedIn
+                target="_blank"
+                src={linkedInIcon}
+                alt="linked In"
+                id="linked In"
+              />
             </Link>
           </Links>
         </ContactContainer>
