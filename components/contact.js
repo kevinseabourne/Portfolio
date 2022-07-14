@@ -25,7 +25,7 @@ export default function Contact() {
 
     handleScrollTo({
       name: "Contact",
-      position: ref.current.offsetTop + 900,
+      position: ref.current.offsetTop,
     });
   };
 
