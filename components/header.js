@@ -60,6 +60,7 @@ const Header = () => {
         {componentPositions.map((component, index) => (
           <Linkk
             tabindex="0"
+            aria-label={component.name}
             key={componentPositions.indexOf(component)}
             array={componentPositions}
             onClick={() => handleClick(component)}

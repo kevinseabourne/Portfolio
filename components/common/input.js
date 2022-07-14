@@ -25,7 +25,7 @@ export const Input = React.forwardRef(
         <Title>{label}</Title>
         <InputContainer error={error}>
           <InnerLabel
-            htmlFor="innerLabel"
+            htmlFor={label}
             data-testid={`${label}-label`}
             valueLength={value.length >= 1}
           >
@@ -42,7 +42,7 @@ export const Input = React.forwardRef(
             maxLength={maxLength}
             valueLength={value.length >= 1}
             data-testid={`${name}-input`}
-            id="innerLabel"
+            id={label}
           />
           <TransitionGroup component={null}>
             {value.length >= 1 && (

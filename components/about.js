@@ -191,7 +191,6 @@ const Line = styled.hr`
 `;
 
 const Text = styled.p`
-  ${"" /* font-size: 1.6em; */}
   font-size: 1.3em;
   max-width: 800px;
   margin-top: 0px;
