@@ -41,15 +41,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <script
-          type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
-        ></script>
-        <script>
-          (function() {emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_USER_ID)}
-          )();
-        </script> */}
-
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <meta
