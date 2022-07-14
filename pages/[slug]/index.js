@@ -9,16 +9,31 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ProjectPage = ({ project, otherProjects }) => {
-  const { push } = useRouter();
+  const { push, query } = useRouter();
+  const { slug } = query;
 
   useEffect(() => {
     AOS.init({
       disable: "mobile",
       offset: 300,
       duration: 750,
-      once: true,
     });
   }, []);
+
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      offset: 300,
+      duration: 750,
+      once: false,
+    });
+    AOS.init({
+      disable: "mobile",
+      offset: 300,
+      duration: 750,
+      once: true,
+    });
+  }, [slug]);
 
   return (
     <Container>

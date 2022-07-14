@@ -139,7 +139,6 @@ const Projects = ({ data, otherProjects }) => {
               {handleRightText(website) &&
                 renderTextContainer(website, "right")}
               <Image
-                data-aos-once="true"
                 data-aos={
                   data.indexOf(website) % 2 !== 0 ? "fade-left" : "fade-right"
                 }
