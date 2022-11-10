@@ -83,6 +83,7 @@ const Skills = (props) => {
                   alt={skill.title}
                   maxWidth="150px"
                   centerImage={true}
+                  priority={true}
                   placeholderSize="100%"
                 />
               </ImageContainer>

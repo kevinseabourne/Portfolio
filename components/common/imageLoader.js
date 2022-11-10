@@ -8,6 +8,7 @@ const ImageLoader = ({
   src,
   srcSet,
   width,
+  priority,
   maxWidth,
   placeholderSize,
   backgroundColor,
@@ -119,6 +120,7 @@ const ImageLoader = ({
             onLoadingComplete={handleLoadComplete}
             objectFit="fill"
             layout="fill"
+            priority={priority ? priority : false}
           />
         )}
       </ImageContainer>
