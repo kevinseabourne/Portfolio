@@ -111,7 +111,7 @@ const TextContainer = styled.div`
   text-align: center;
   flex: 0 1 370px;
   &:nth-child(2) {
-    margin: 0 20px;
+    margin: 0 30px;
   }
   @media (max-width: 1247px) {
     margin: 0 auto;

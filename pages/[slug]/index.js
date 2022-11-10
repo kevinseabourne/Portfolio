@@ -18,6 +18,7 @@ const ProjectPage = ({ project, otherProjects }) => {
       disable: "mobile",
       offset: 300,
       duration: 750,
+      anchorPlacement: "bottom-bottom",
     });
   }, []);
 
@@ -27,13 +28,14 @@ const ProjectPage = ({ project, otherProjects }) => {
       offset: 300,
       duration: 750,
       once: false,
+      anchorPlacement: "bottom-bottom",
     });
   }, [slug]);
 
   return (
     <Container>
       <Head>
-        <title>{`Kevin D Seabourne | ${project.title}`}</title>
+        <title>{`Kevin Seabourne | ${project.title}`}</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -108,7 +110,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             <Label data-aos="fade-up" data-aos-delay="200">
               Code
             </Label>
-            <NewLink href={project.githubLink} target="_blank">
+            <NewLink href={project.githubLink} target="_blank" tabIndex="-1">
               <LinkText data-aos="fade-up" data-aos-delay="300">
                 Repository
               </LinkText>
@@ -118,7 +120,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             <Label data-aos="fade-up" data-aos-delay="300">
               Live
             </Label>
-            <NewLink href={project.websiteLink} target="_blank">
+            <NewLink href={project.websiteLink} target="_blank" tabIndex="-1">
               <LinkText data-aos="fade-up" data-aos-delay="400">
                 View Site
               </LinkText>
@@ -310,10 +312,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const IconContainer = styled.div`
+const IconContainer = styled.button`
   width: 36px;
   height: 36px;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
   margin-top: 80px;
+  &:focus {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
   & .returnIcon {
     color: pink;
   }
@@ -499,9 +509,7 @@ const Stack = styled.span`
 
 const NewLink = styled.a`
   text-decoration: none;
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
+  outline: none;
 `;
 
 const LinkText = styled.button`

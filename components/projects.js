@@ -82,7 +82,7 @@ const Projects = ({ data, otherProjects }) => {
             data-aos={`fade-${direction}`}
             data-aos-delay="250"
           >
-            <NewLink href={website.websiteLink} target="_blank">
+            <NewLink href={website.websiteLink} tabIndex="-1" target="_blank">
               <DemoButton>Demo</DemoButton>
             </NewLink>
           </InnerButtonContainer>
@@ -157,6 +157,7 @@ const Projects = ({ data, otherProjects }) => {
                   priority={true}
                   loadingSkeleton={true}
                   boxShadow="0 10px 20px 0 hsla(0, 0%, 41.6%, 0.3)"
+                  boxShadowHover="0 12px 22px 0 hsla(0, 0%, 41.6%, 0.5)"
                 />
               </Image>
               {handleLeftText(website) && renderTextContainer(website, "left")}
@@ -200,7 +201,7 @@ const Wrapper = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  margin-top: 9rem;
+  margin-top: 12rem;
   margin-bottom: 6em;
   @media (max-width: 986px) {
     margin-top: 3em;
@@ -218,9 +219,7 @@ const Title = styled.h1`
 
 const NewLink = styled.a`
   text-decoration: none;
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
+  outline: none;
 `;
 
 const Line = styled.hr`
@@ -274,6 +273,11 @@ const Image = styled.a`
   align-items: center;
   &:hover {
     cursor: pointer;
+  }
+  &:focus {
+    &:focus:not(.focus-visible) {
+      outline: 1px solid initial;
+    }
   }
 `;
 
@@ -409,16 +413,20 @@ const DemoButton = styled.button`
   margin-right: 15px;
   border: none;
   color: #f5f5eb;
-  outline: none;
   font-weight: 700;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
   transform: translateY(0px) scale(1);
-  transition: all 0.15s ease;
+  transition: all 0.3s;
+  &:focus {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
   &:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1) translateY(-3.5px);
+    transform: scale(1) translateY(-3px);
     cursor: pointer;
   }
   @media (max-width: 1408px) {
@@ -437,17 +445,21 @@ const CodeButton = styled.button`
   padding: 14px 24px;
   border-radius: 40px;
   border: none;
-  outline: none;
   color: #f5f5eb;
   font-weight: 700;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #02aab0 0%, #00cdac 100%);
   transform: translateY(0px) scale(1);
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
+  &:focus {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
   &:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1) translateY(-3.5px);
+    transform: scale(1) translateY(-3px);
     cursor: pointer;
   }
   @media (max-width: 1408px) {

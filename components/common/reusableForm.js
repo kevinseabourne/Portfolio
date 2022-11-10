@@ -162,7 +162,9 @@ const SubmitButton = styled.button`
     cursor: pointer;
   }
   &:focus {
-    outline: 0;
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
   @media (max-width: 750px) {
     width: 100%;

@@ -59,7 +59,6 @@ const Header = () => {
       <React.Fragment>
         {componentPositions.map((component, index) => (
           <Linkk
-            tabindex="0"
             aria-label={component.name}
             key={componentPositions.indexOf(component)}
             array={componentPositions}
@@ -94,8 +93,12 @@ const Header = () => {
       </SkipHeaderLink>
       {!burgerMenu && <HeaderContainer>{renderLinks()}</HeaderContainer>}
 
-      <ResonsiveHeaderContainer id="responsive">
-        <BurgerContainer onClick={handleBurgerClick}>
+      <ResonsiveHeaderContainer id="responsive" aria-label="menu">
+        <BurgerContainer
+          onClick={handleBurgerClick}
+          aria-label={burgerMenu ? "Close Menu" : "Menu"}
+          role="navigation"
+        >
           <BurgerMenu
             value={burgerMenu}
             id="burgerMenu"
@@ -184,10 +187,10 @@ const Linkk = styled.button`
   font-weight: 600;
   font-family: inherit;
   letter-spacing: 1px;
+  border: unset;
   text-align: center;
   white-space: nowrap;
   background-color: transparent;
-  border: none;
   width: calc(100% - 40px);
   margin: 22.46px 11px;
   padding: 0px 12px;
@@ -209,6 +212,12 @@ const Linkk = styled.button`
     border-radius: 0px 0px 4px 4px;
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  }
+
+  &:focus {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 
   &:hover&::before {

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import ImageLoader from "./common/imageLoader";
 import AppContext from "../context/appContext";
 import AOS from "aos";
@@ -40,12 +40,18 @@ const Skills = (props) => {
   };
 
   const skills = [
-    { image: "/images/html5-original.svg", title: "html5" },
-    { image: "/images/css3-original.svg", title: "css3" },
-    { image: "/images/javascript-original.svg", title: "javascript" },
-    { image: "/images/styled-components-logo.png", title: "sc" },
-    { image: "/images/nextjs-logotype-dark.svg", title: "next.js" },
-    { image: "/images/github-original.svg", title: "github" },
+    { image: "/images/nextjs-logotype-dark.svg", title: "Next.js" },
+    { image: "/images/typescript.svg", title: "Typescript" },
+    { image: "/images/javascript-original.svg", title: "Javascript" },
+    { image: "/images/html5-original.svg", title: "HTML" },
+    { image: "/images/css3-original.svg", title: "CSS" },
+    { image: "/images/styled-components-logo.png", title: "Styled Components" },
+    { image: "/images/gitIcon.svg", title: "Git" },
+    {
+      image: "/images/react-testing-library.png",
+      title: "React Testing Library",
+    },
+    { image: "/images/cypress.png", title: "Cypress" },
   ];
 
   return (
@@ -57,7 +63,13 @@ const Skills = (props) => {
         </TitleContainer>
         <ImagesContainer>
           {skills.map((skill) => (
-            <Child key={skills.indexOf(skill)}>
+            <Child
+              key={skills.indexOf(skill)}
+              whileHover={{
+                scale: 1.04,
+                transition: { type: "spring", bounce: 0.25 },
+              }}
+            >
               <ImageContainer
                 data-aos="fade-in"
                 data-aos-once="true"
@@ -69,7 +81,9 @@ const Skills = (props) => {
                   data-testid={skill.title}
                   key={skills.indexOf(skill)}
                   alt={skill.title}
-                  placeholderSize="95%"
+                  maxWidth="150px"
+                  centerImage={true}
+                  placeholderSize="100%"
                 />
               </ImageContainer>
 
@@ -90,19 +104,21 @@ const Skills = (props) => {
 };
 
 const Container = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #08aeea;
   background-image: linear-gradient(0deg, #00cdac 0%, #02aab0 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 190px 0px;
   @media (max-height: 984px) {
     height: 100%;
     padding: 35px 0px;
   }
-  @media (max-width: 984px) {
+  @media (max-width: 986px) {
     height: 100%;
+    padding: 0px 0px;
   }
 `;
 
@@ -162,11 +178,11 @@ const ImagesContainer = styled.div`
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 200px));
+  grid-template-columns: repeat(3, minmax(100px, 250px));
   justify-content: space-evenly;
   grid-auto-flow: row;
   grid-column-end: auto;
-  grid-gap: 200px 12%;
+  grid-gap: 200px 5%;
   @media (max-width: 1260px) {
     grip-gap: 76px 0%;
     padding-bottom: 3rem;
@@ -174,15 +190,15 @@ const ImagesContainer = styled.div`
   @media (max-width: 638px) {
     padding-bottom: 0px;
     grid-gap: 67px 12%;
-    grid-template-columns: repeat(2, minmax(10px, 180px));
+    grid-template-columns: repeat(2, minmax(10px, 170px));
   }
 `;
 
-const Child = styled.div`
+const Child = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -192,9 +208,8 @@ const ImageContainer = styled.div`
 
 const SubTitle = styled.label`
   text-align: center;
-  font-size: 32px;
+  font-size: 27px;
   letter-spacing: 2;
-  text-transform: uppercase;
   margin-top: 21px;
   margin-bottom: 0.5rem;
   @media (max-width: 1200px) {

@@ -19,7 +19,7 @@ const Home = ({ allProjects }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Kevin D Seabourne | Portfolio</title>
+        <title>Kevin Seabourne | Portfolio</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

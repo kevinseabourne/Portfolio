@@ -28,6 +28,8 @@ const ImageLoader = ({
   marginLeft,
   marginRight,
   boxShadow,
+  boxShadowHover,
+  scaleHover,
   y,
   x,
   zIndex,
@@ -80,6 +82,8 @@ const ImageLoader = ({
       maxWidth={maxWidth}
       width={width}
       boxShadow={boxShadow}
+      boxShadowHover={boxShadowHover}
+      scaleHover={scaleHover}
     >
       {loadingSkeleton && !isLoaded && (
         <SkeletonAnimation
@@ -138,7 +142,15 @@ const Container = styled(motion.div)`
   margin-right: ${({ marginRight }) => (marginRight ? marginRight : "none")};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "100%")};
   width: ${({ width }) => (width ? width : "100%")};
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
   box-shadow: ${({ boxShadow }) => (boxShadow ? boxShadow : "none")};
+  &:hover {
+    transform: ${({ scaleHover }) =>
+      scaleHover ? `scale(${scaleHover})` : "none"};
+    box-shadow: ${({ boxShadowHover, isLoaded }) =>
+      isLoaded ? (boxShadowHover ? boxShadowHover : "none") : "none"};
+  }
 `;
 
 const ImageContainer = styled(motion.div)`

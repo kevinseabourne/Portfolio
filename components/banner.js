@@ -17,7 +17,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <Container data-testid="banner">
+    <Container data-testid="banner" id="main">
       <TextContainer>
         <JobTitle1 data-aos="fade-right" data-aos-delay="100">
           Front-End
@@ -26,7 +26,7 @@ const Banner = () => {
           Web Developer
         </JobTitle2>
         <Name data-aos="fade-right" data-aos-delay="500">
-          Kevin D Seabourne
+          Kevin Seabourne
         </Name>
         <Line data-aos="fade-right" data-aos-delay="700" />
       </TextContainer>
