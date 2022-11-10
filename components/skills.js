@@ -114,11 +114,11 @@ const Container = styled.section`
   padding: 190px 0px;
   @media (max-height: 984px) {
     height: 100%;
-    padding: 35px 0px;
+    padding: 190px 0px;
   }
   @media (max-width: 986px) {
     height: 100%;
-    padding: 0px 0px;
+    padding: 0px;
   }
 `;
 
