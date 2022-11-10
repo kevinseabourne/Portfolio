@@ -16,19 +16,15 @@ const ProjectPage = ({ project, otherProjects }) => {
   useEffect(() => {
     AOS.init({
       disable: "mobile",
-      offset: 300,
       duration: 750,
-      anchorPlacement: "bottom-bottom",
     });
   }, []);
 
   useEffect(() => {
     AOS.init({
       disable: "mobile",
-      offset: 300,
       duration: 750,
       once: false,
-      anchorPlacement: "bottom-bottom",
     });
   }, [slug]);
 
@@ -84,6 +80,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             </Label>
             {project.features.map((feature, index) => (
               <Stack
+                key={index}
                 data-aos="fade-up"
                 data-aos-delay={index === 0 ? 100 : index * 100}
                 data-aos-anchor-placement="bottom-bottom"
@@ -98,6 +95,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             </Label>
             {project.fullStack.map((stack, index) => (
               <Stack
+                key={index}
                 data-aos="fade-up"
                 data-aos-delay={index === 0 ? 100 : index * 100}
                 data-aos-anchor-placement="bottom-bottom"
