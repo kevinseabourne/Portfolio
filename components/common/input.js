@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
+import AOS from "aos";
 const dangerIcon = "/images/caution.svg";
 const crossIcon = "/images/cross-icon.svg";
 
@@ -16,14 +16,28 @@ export const Input = React.forwardRef(
       name,
       doSubmit,
       value,
+      animationDelay,
       ...rest
     },
     ref
   ) => {
     return (
       <Container>
-        <Title>{label}</Title>
-        <InputContainer error={error}>
+        <TitleContainer
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-delay={toString(animationDelay)}
+          data-aos-anchor-placement="bottom-bottom"
+        >
+          <Title>{label}</Title>
+        </TitleContainer>
+        <InputContainer
+          error={error}
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-delay={toString(animationDelay + 50)}
+          data-aos-anchor-placement="bottom-bottom"
+        >
           <InnerLabel
             htmlFor={label}
             data-testid={`${label}-label`}
@@ -67,7 +81,7 @@ export const Input = React.forwardRef(
             <CSSTransition
               in={typeof error !== "undefined"}
               classNames="errorAnimation"
-              timeout={300}
+              timeout={400}
               unmountOnExit
             >
               <Error error={error} data-testid={`${name}ErrorMessage`}>
@@ -89,6 +103,8 @@ export const Input = React.forwardRef(
 const Container = styled.div`
   width: 100%;
 `;
+
+const TitleContainer = styled.div``;
 
 const Title = styled.label`
   font-size: 1.26rem;
@@ -122,14 +138,10 @@ const InputContainer = styled.div`
     font-weight: 500;
     font-size: 14px;
     color: rgb(51, 51, 51);
-    /* border-color: grey; */
-    /* box-shadow: 0 0 0 1px grey; */
+
     outline: none;
     transition: all 0.3s ease-in-out;
   }
-  ${"" /* ${(props) => !props.error} {
-    margin-bottom: 0px;
-  } */}
 `;
 
 const InnerLabel = styled.label`

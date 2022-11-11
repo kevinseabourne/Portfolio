@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { Component } from "react";
 import Joi from "joi-browser";
+import AOS from "aos";
 import { Input } from "./input";
 import { TextBox } from "./textBox";
 import styled from "styled-components";
@@ -75,7 +76,7 @@ export default class ReusableForm extends Component {
     ref.current.focus();
   };
 
-  renderInput(name, label, maxLength, ref, type = "text") {
+  renderInput(name, label, maxLength, ref, type = "text", animationDelay) {
     const { data, errors } = this.state;
     return (
       <Input
@@ -88,11 +89,12 @@ export default class ReusableForm extends Component {
         onClick={() => this.ClearInputOnClick(name, ref)}
         error={errors[name]}
         maxLength={maxLength}
+        animationDelay={animationDelay}
       />
     );
   }
 
-  renderTextBox(name, label, ref) {
+  renderTextBox(name, label, ref, animationDelay) {
     const { data, errors } = this.state;
     return (
       <TextBox
@@ -103,35 +105,45 @@ export default class ReusableForm extends Component {
         onChange={this.handleChange}
         onClick={() => this.ClearInputOnClick(name, ref)}
         error={errors[name]}
+        animationDelay={animationDelay}
       />
     );
   }
 
   renderButton = (label, status) => {
     return (
-      <SubmitButton
-        id={label}
-        data-testid={label}
-        disabled={status === "pending" ? true : false}
-        onClick={(e) => this.handleSubmit(status, e)}
+      <ButtonContainer
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-delay="600"
+        data-aos-anchor-placement="bottom-bottom"
       >
-        {status === "pending" ? (
-          <Loading data-testid="loading-spinner" loadingIcon={loadingIcon} />
-        ) : status === "resolved" ? (
-          <Image
-            src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/thumbs-up_1f44d.png"
-            alt="Thumbs up"
-            width={25}
-            height={25}
-            priority={true}
-          />
-        ) : (
-          label
-        )}
-      </SubmitButton>
+        <SubmitButton
+          id={label}
+          data-testid={label}
+          disabled={status === "pending" ? true : false}
+          onClick={(e) => this.handleSubmit(status, e)}
+        >
+          {status === "pending" ? (
+            <Loading data-testid="loading-spinner" loadingIcon={loadingIcon} />
+          ) : status === "resolved" ? (
+            <Image
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/thumbs-up_1f44d.png"
+              alt="Thumbs up"
+              width={25}
+              height={25}
+              priority={true}
+            />
+          ) : (
+            label
+          )}
+        </SubmitButton>
+      </ButtonContainer>
     );
   };
 }
+
+const ButtonContainer = styled.div``;
 
 const SubmitButton = styled.button`
   min-width: 91.3px;

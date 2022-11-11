@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
+import AOS from "aos";
 const dangerIcon = "/images/caution.svg";
 const crossIcon = "/images/cross-icon.svg";
 
@@ -16,14 +16,28 @@ export const TextBox = React.forwardRef(
       name,
       doSubmit,
       value,
+      animationDelay,
       ...rest
     },
     ref
   ) => {
     return (
       <Container>
-        <Title>{label}</Title>
-        <InputContainer error={error}>
+        <TitleContainer
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-delay={toString(animationDelay)}
+          data-aos-anchor-placement="bottom-bottom"
+        >
+          <Title>{label}</Title>
+        </TitleContainer>
+        <InputContainer
+          error={error}
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-delay={toString(animationDelay + 50)}
+          data-aos-anchor-placement="bottom-bottom"
+        >
           <InnerLabel
             htmlFor={label}
             data-testid={`${label}-label`}
@@ -89,6 +103,8 @@ export const TextBox = React.forwardRef(
 const Container = styled.div`
   width: 100%;
 `;
+
+const TitleContainer = styled.div``;
 
 const Title = styled.label`
   font-size: 1.26rem;

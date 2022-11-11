@@ -39,8 +39,19 @@ export default function Contact() {
     <Container ref={ref}>
       <Wrapper>
         <TitleContainer>
-          <Title>Contact</Title>
-          <Line />
+          <Title
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            Contact
+          </Title>
+          <Line
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-delay={50}
+            data-aos-anchor-placement="bottom-bottom"
+          />
         </TitleContainer>
         <ContactContainer>
           <GetInTouch data-aos="fade" data-aos-delay="200" data-aos-once="true">

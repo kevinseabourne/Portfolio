@@ -130,8 +130,10 @@ const Projects = ({ data, otherProjects }) => {
     <Container ref={ref}>
       <Wrapper>
         <TitleContainer>
-          <Title>{otherProjects ? "Other Projects" : "Projects"}</Title>
-          <Line />
+          <Title data-aos="fade-up" data-aos-once="true">
+            {otherProjects ? "Other Projects" : "Projects"}
+          </Title>
+          <Line data-aos="fade-up" data-aos-once="true" data-aos-delay={50} />
         </TitleContainer>
         <ProjectsContainer>
           {data.map((website, index) => (

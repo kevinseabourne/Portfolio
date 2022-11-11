@@ -21,7 +21,6 @@ const Skills = (props) => {
       disable: "mobile",
       duration: 750,
       offset: 0,
-      anchorPlacement: "bottom-bottom",
     });
 
     updateSize();
@@ -58,8 +57,10 @@ const Skills = (props) => {
     <Container data-testid="skills-container" ref={ref}>
       <Wrapper>
         <TitleContainer>
-          <Title>Skills</Title>
-          <Line />
+          <Title data-aos="fade-up" data-aos-once="true">
+            Skills
+          </Title>
+          <Line data-aos="fade-up" data-aos-once="true" data-aos-delay="50" />
         </TitleContainer>
         <ImagesContainer>
           {skills.map((skill) => (

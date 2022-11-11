@@ -93,7 +93,6 @@ class ContactForm extends ReusableForm {
         pauseOnHover: true,
         draggable: true,
       });
-      logger.log(error);
     }
   };
 
@@ -108,10 +107,10 @@ class ContactForm extends ReusableForm {
 
   render() {
     return (
-      <Form data-aos="fade" data-aos-once="true">
-        {this.renderInput("name", "Name", "", this.nameRef)}
-        {this.renderInput("email", "Email", "", this.emailRef)}
-        {this.renderTextBox("message", "Message", this.messageRef)}
+      <Form>
+        {this.renderInput("name", "Name", "", this.nameRef, 100)}
+        {this.renderInput("email", "Email", "", this.emailRef, 200)}
+        {this.renderTextBox("message", "Message", this.messageRef, 300)}
         {this.renderButton("Send", this.state.status)}
       </Form>
     );
