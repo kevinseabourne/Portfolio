@@ -1,6 +1,6 @@
 import logger from "./logger";
 import { toast } from "react-toastify";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 export async function sendEmail(data) {
   // Cypress Testing Coverage //
@@ -13,15 +13,18 @@ export async function sendEmail(data) {
   };
   return emailjs
     .send(
-      "outlook",
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      template_params,
-      process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+      process.env.EMAILJS_SERVICE_ID,
+      process.env.EMAILJS_TEMPLATE_ID,
+      template_params
     )
-    .then((response) => {
-      if (response && response.status === 200) {
-        return response;
+    .then(
+      (response) => {
+        if (response && response.status === 200) {
+          return response;
+        }
+      },
+      (error) => {
+        logger.log(error);
       }
-    })
-    .catch(() => {});
+    );
 }
