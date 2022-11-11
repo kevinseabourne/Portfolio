@@ -13,6 +13,9 @@ export default function Contact() {
   const ref = useRef(null);
 
   useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+    });
     window.addEventListener("resize", updateSize);
     return () => {
       window.removeEventListener("resize", updateSize);

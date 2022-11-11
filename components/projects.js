@@ -14,6 +14,7 @@ const Projects = ({ data, otherProjects }) => {
 
   useEffect(() => {
     AOS.init({
+      disable: "mobile",
       offset: 100,
       duration: 750,
       once: true,
