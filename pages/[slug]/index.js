@@ -58,6 +58,7 @@ const ProjectPage = ({ project, otherProjects }) => {
             alt="return"
             src="/images/back.png"
             hover={true}
+            priority={true}
           />
         </IconContainer>
         <TitleContainer>
