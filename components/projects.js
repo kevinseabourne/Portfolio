@@ -13,12 +13,6 @@ const Projects = ({ data, otherProjects }) => {
   const [innerWidth, setInnerWidth] = useState(null);
 
   useEffect(() => {
-    AOS.init({
-      disable: "mobile",
-      offset: 100,
-      duration: 750,
-      once: true,
-    });
     data.length === 0 &&
       toast.error("An error has occurred", {
         position: "bottom-right",
@@ -34,6 +28,15 @@ const Projects = ({ data, otherProjects }) => {
       window.removeEventListener("resize", updateSize);
     };
   }, []);
+
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      offset: 100,
+      duration: 750,
+      once: true,
+    });
+  });
 
   const updateSize = () => {
     const { handleScrollTo } = context;
