@@ -5,9 +5,9 @@ This portfolio displays all projects I have designed and or developed.
 ## Stack
 
 • Next.js
-• Javascript
+• JavaScript
 • Styled Components
-• GraphCMS
+• Hygraph
 • GraphQL
 • React Hook Form
 • Jest
@@ -16,7 +16,7 @@ This portfolio displays all projects I have designed and or developed.
 
 ## Features
 
-• Http Requests
+• HTTP Requests
 • Dynamic Routes
 • Scroll To Functionality
 • Contact Form
