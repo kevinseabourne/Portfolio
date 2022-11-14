@@ -50,8 +50,9 @@ const About = (props) => {
           </Title>
           <Line data-aos="flip-down" data-aos-delay="700" />
           <Text data-aos="fade-up" data-aos-delay="400">
-            I strive to write clean, non-repetitive, reusable & understandable
-            code.
+            I am a web developer who fell in love with programming in my free
+            time. I enjoy learning about new technologies and have a passion for
+            web development.
           </Text>
         </TextContainer>
         <TextContainer>
