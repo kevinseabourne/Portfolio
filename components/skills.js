@@ -40,8 +40,8 @@ const Skills = (props) => {
 
   const skills = [
     { image: "/images/nextjs-logotype-dark.svg", title: "Next.js" },
-    { image: "/images/typescript.svg", title: "Typescript" },
-    { image: "/images/javascript-original.svg", title: "Javascript" },
+    { image: "/images/typescript.svg", title: "TypeScript" },
+    { image: "/images/javascript-original.svg", title: "JavaScript" },
     { image: "/images/html5-original.svg", title: "HTML" },
     { image: "/images/css3-original.svg", title: "CSS" },
     { image: "/images/styled-components-logo.png", title: "Styled Components" },

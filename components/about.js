@@ -40,7 +40,7 @@ const About = (props) => {
           <Title data-aos="fade-up">My View</Title>
           <Line data-aos="flip-down" data-aos-delay="500" />
           <Text data-aos="fade-up" data-aos-delay="200">
-            I strive to write clean, non repetative, reusable & understandable
+            I strive to write clean, non-repetitive, reusable & understandable
             code.
           </Text>
         </TextContainer>
@@ -50,9 +50,8 @@ const About = (props) => {
           </Title>
           <Line data-aos="flip-down" data-aos-delay="700" />
           <Text data-aos="fade-up" data-aos-delay="400">
-            I am a web developer who fell in love with programing in my free
-            time. I enjoy learning about new technologies and have a passion for
-            web development.
+            I strive to write clean, non-repetitive, reusable & understandable
+            code.
           </Text>
         </TextContainer>
         <TextContainer>
@@ -66,7 +65,7 @@ const About = (props) => {
             data-aos-anchor-placement="bottom-bottom"
           >
             To continue to learn. Work on bigger projects, taking on new,
-            different challanges and ultimatly build a long career in the
+            different challenges and ultimately build a long career in the
             industry.
           </Text>
         </TextContainer>
